@@ -1,0 +1,19 @@
+{
+    "files.associations": {
+        "*.vue": "vue",
+        "*.wpy": "vue",
+        "*.wxml": "html",
+        "*.wxss": "css",
+        "icm42688.h": "c",
+        "dmx_board.h": "c",
+        "arm_math.h": "c",
+        "user_lib.h": "c",
+        "mahonyahrs.h": "c",
+        "madgwickahrs.h": "c",
+        "motor.h": "c"
+    },
+    "C_Cpp.errorSquiggles": "enabled",
+    "python-envs.defaultEnvManager": "ms-python.python:conda",
+    "python-envs.defaultPackageManager": "ms-python.python:conda",
+    "python-envs.pythonProjects": []
+}

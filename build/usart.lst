@@ -1,0 +1,744 @@
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccJleUyS.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.arch armv7e-m
+   3              		.fpu fpv4-sp-d16
+   4              		.eabi_attribute 27, 1
+   5              		.eabi_attribute 28, 1
+   6              		.eabi_attribute 20, 1
+   7              		.eabi_attribute 21, 1
+   8              		.eabi_attribute 23, 3
+   9              		.eabi_attribute 24, 1
+  10              		.eabi_attribute 25, 1
+  11              		.eabi_attribute 26, 1
+  12              		.eabi_attribute 30, 1
+  13              		.eabi_attribute 34, 1
+  14              		.eabi_attribute 18, 4
+  15              		.file	"usart.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.section	.text.MX_USART6_UART_Init,"ax",%progbits
+  20              		.align	1
+  21              		.global	MX_USART6_UART_Init
+  22              		.syntax unified
+  23              		.thumb
+  24              		.thumb_func
+  26              	MX_USART6_UART_Init:
+  27              	.LFB134:
+  28              		.file 1 "Core/Src/usart.c"
+   1:Core/Src/usart.c **** /* USER CODE BEGIN Header */
+   2:Core/Src/usart.c **** /**
+   3:Core/Src/usart.c ****   ******************************************************************************
+   4:Core/Src/usart.c ****   * @file    usart.c
+   5:Core/Src/usart.c ****   * @brief   This file provides code for the configuration
+   6:Core/Src/usart.c ****   *          of the USART instances.
+   7:Core/Src/usart.c ****   ******************************************************************************
+   8:Core/Src/usart.c ****   * @attention
+   9:Core/Src/usart.c ****   *
+  10:Core/Src/usart.c ****   * Copyright (c) 2026 STMicroelectronics.
+  11:Core/Src/usart.c ****   * All rights reserved.
+  12:Core/Src/usart.c ****   *
+  13:Core/Src/usart.c ****   * This software is licensed under terms that can be found in the LICENSE file
+  14:Core/Src/usart.c ****   * in the root directory of this software component.
+  15:Core/Src/usart.c ****   * If no LICENSE file comes with this software, it is provided AS-IS.
+  16:Core/Src/usart.c ****   *
+  17:Core/Src/usart.c ****   ******************************************************************************
+  18:Core/Src/usart.c ****   */
+  19:Core/Src/usart.c **** /* USER CODE END Header */
+  20:Core/Src/usart.c **** /* Includes ------------------------------------------------------------------*/
+  21:Core/Src/usart.c **** #include "usart.h"
+  22:Core/Src/usart.c **** 
+  23:Core/Src/usart.c **** /* USER CODE BEGIN 0 */
+  24:Core/Src/usart.c **** 
+  25:Core/Src/usart.c **** /* USER CODE END 0 */
+  26:Core/Src/usart.c **** 
+  27:Core/Src/usart.c **** UART_HandleTypeDef huart6;
+  28:Core/Src/usart.c **** DMA_HandleTypeDef hdma_usart6_tx;
+  29:Core/Src/usart.c **** DMA_HandleTypeDef hdma_usart6_rx;
+  30:Core/Src/usart.c **** 
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccJleUyS.s 			page 2
+
+
+  31:Core/Src/usart.c **** /* USART6 init function */
+  32:Core/Src/usart.c **** 
+  33:Core/Src/usart.c **** void MX_USART6_UART_Init(void)
+  34:Core/Src/usart.c **** {
+  29              		.loc 1 34 1 view -0
+  30              		.cfi_startproc
+  31              		@ args = 0, pretend = 0, frame = 0
+  32              		@ frame_needed = 0, uses_anonymous_args = 0
+  33 0000 08B5     		push	{r3, lr}
+  34              	.LCFI0:
+  35              		.cfi_def_cfa_offset 8
+  36              		.cfi_offset 3, -8
+  37              		.cfi_offset 14, -4
+  35:Core/Src/usart.c **** 
+  36:Core/Src/usart.c ****   /* USER CODE BEGIN USART6_Init 0 */
+  37:Core/Src/usart.c **** 
+  38:Core/Src/usart.c ****   /* USER CODE END USART6_Init 0 */
+  39:Core/Src/usart.c **** 
+  40:Core/Src/usart.c ****   /* USER CODE BEGIN USART6_Init 1 */
+  41:Core/Src/usart.c **** 
+  42:Core/Src/usart.c ****   /* USER CODE END USART6_Init 1 */
+  43:Core/Src/usart.c ****   huart6.Instance = USART6;
+  38              		.loc 1 43 3 view .LVU1
+  39              		.loc 1 43 19 is_stmt 0 view .LVU2
+  40 0002 0A48     		ldr	r0, .L5
+  41 0004 0A4B     		ldr	r3, .L5+4
+  42 0006 0360     		str	r3, [r0]
+  44:Core/Src/usart.c ****   huart6.Init.BaudRate = 115200;
+  43              		.loc 1 44 3 is_stmt 1 view .LVU3
+  44              		.loc 1 44 24 is_stmt 0 view .LVU4
+  45 0008 4FF4E133 		mov	r3, #115200
+  46 000c 4360     		str	r3, [r0, #4]
+  45:Core/Src/usart.c ****   huart6.Init.WordLength = UART_WORDLENGTH_8B;
+  47              		.loc 1 45 3 is_stmt 1 view .LVU5
+  48              		.loc 1 45 26 is_stmt 0 view .LVU6
+  49 000e 0023     		movs	r3, #0
+  50 0010 8360     		str	r3, [r0, #8]
+  46:Core/Src/usart.c ****   huart6.Init.StopBits = UART_STOPBITS_1;
+  51              		.loc 1 46 3 is_stmt 1 view .LVU7
+  52              		.loc 1 46 24 is_stmt 0 view .LVU8
+  53 0012 C360     		str	r3, [r0, #12]
+  47:Core/Src/usart.c ****   huart6.Init.Parity = UART_PARITY_NONE;
+  54              		.loc 1 47 3 is_stmt 1 view .LVU9
+  55              		.loc 1 47 22 is_stmt 0 view .LVU10
+  56 0014 0361     		str	r3, [r0, #16]
+  48:Core/Src/usart.c ****   huart6.Init.Mode = UART_MODE_TX_RX;
+  57              		.loc 1 48 3 is_stmt 1 view .LVU11
+  58              		.loc 1 48 20 is_stmt 0 view .LVU12
+  59 0016 0C22     		movs	r2, #12
+  60 0018 4261     		str	r2, [r0, #20]
+  49:Core/Src/usart.c ****   huart6.Init.HwFlowCtl = UART_HWCONTROL_NONE;
+  61              		.loc 1 49 3 is_stmt 1 view .LVU13
+  62              		.loc 1 49 25 is_stmt 0 view .LVU14
+  63 001a 8361     		str	r3, [r0, #24]
+  50:Core/Src/usart.c ****   huart6.Init.OverSampling = UART_OVERSAMPLING_16;
+  64              		.loc 1 50 3 is_stmt 1 view .LVU15
+  65              		.loc 1 50 28 is_stmt 0 view .LVU16
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccJleUyS.s 			page 3
+
+
+  66 001c C361     		str	r3, [r0, #28]
+  51:Core/Src/usart.c ****   if (HAL_UART_Init(&huart6) != HAL_OK)
+  67              		.loc 1 51 3 is_stmt 1 view .LVU17
+  68              		.loc 1 51 7 is_stmt 0 view .LVU18
+  69 001e FFF7FEFF 		bl	HAL_UART_Init
+  70              	.LVL0:
+  71              		.loc 1 51 6 view .LVU19
+  72 0022 00B9     		cbnz	r0, .L4
+  73              	.L1:
+  52:Core/Src/usart.c ****   {
+  53:Core/Src/usart.c ****     Error_Handler();
+  54:Core/Src/usart.c ****   }
+  55:Core/Src/usart.c ****   /* USER CODE BEGIN USART6_Init 2 */
+  56:Core/Src/usart.c **** 
+  57:Core/Src/usart.c ****   /* USER CODE END USART6_Init 2 */
+  58:Core/Src/usart.c **** 
+  59:Core/Src/usart.c **** }
+  74              		.loc 1 59 1 view .LVU20
+  75 0024 08BD     		pop	{r3, pc}
+  76              	.L4:
+  53:Core/Src/usart.c ****   }
+  77              		.loc 1 53 5 is_stmt 1 view .LVU21
+  78 0026 FFF7FEFF 		bl	Error_Handler
+  79              	.LVL1:
+  80              		.loc 1 59 1 is_stmt 0 view .LVU22
+  81 002a FBE7     		b	.L1
+  82              	.L6:
+  83              		.align	2
+  84              	.L5:
+  85 002c 00000000 		.word	.LANCHOR0
+  86 0030 00140140 		.word	1073812480
+  87              		.cfi_endproc
+  88              	.LFE134:
+  90              		.section	.text.HAL_UART_MspInit,"ax",%progbits
+  91              		.align	1
+  92              		.global	HAL_UART_MspInit
+  93              		.syntax unified
+  94              		.thumb
+  95              		.thumb_func
+  97              	HAL_UART_MspInit:
+  98              	.LVL2:
+  99              	.LFB135:
+  60:Core/Src/usart.c **** 
+  61:Core/Src/usart.c **** void HAL_UART_MspInit(UART_HandleTypeDef* uartHandle)
+  62:Core/Src/usart.c **** {
+ 100              		.loc 1 62 1 is_stmt 1 view -0
+ 101              		.cfi_startproc
+ 102              		@ args = 0, pretend = 0, frame = 32
+ 103              		@ frame_needed = 0, uses_anonymous_args = 0
+ 104              		.loc 1 62 1 is_stmt 0 view .LVU24
+ 105 0000 30B5     		push	{r4, r5, lr}
+ 106              	.LCFI1:
+ 107              		.cfi_def_cfa_offset 12
+ 108              		.cfi_offset 4, -12
+ 109              		.cfi_offset 5, -8
+ 110              		.cfi_offset 14, -4
+ 111 0002 89B0     		sub	sp, sp, #36
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccJleUyS.s 			page 4
+
+
+ 112              	.LCFI2:
+ 113              		.cfi_def_cfa_offset 48
+  63:Core/Src/usart.c **** 
+  64:Core/Src/usart.c ****   GPIO_InitTypeDef GPIO_InitStruct = {0};
+ 114              		.loc 1 64 3 is_stmt 1 view .LVU25
+ 115              		.loc 1 64 20 is_stmt 0 view .LVU26
+ 116 0004 0023     		movs	r3, #0
+ 117 0006 0393     		str	r3, [sp, #12]
+ 118 0008 0493     		str	r3, [sp, #16]
+ 119 000a 0593     		str	r3, [sp, #20]
+ 120 000c 0693     		str	r3, [sp, #24]
+ 121 000e 0793     		str	r3, [sp, #28]
+  65:Core/Src/usart.c ****   if(uartHandle->Instance==USART6)
+ 122              		.loc 1 65 3 is_stmt 1 view .LVU27
+ 123              		.loc 1 65 16 is_stmt 0 view .LVU28
+ 124 0010 0268     		ldr	r2, [r0]
+ 125              		.loc 1 65 5 view .LVU29
+ 126 0012 334B     		ldr	r3, .L15
+ 127 0014 9A42     		cmp	r2, r3
+ 128 0016 01D0     		beq	.L12
+ 129              	.LVL3:
+ 130              	.L7:
+  66:Core/Src/usart.c ****   {
+  67:Core/Src/usart.c ****   /* USER CODE BEGIN USART6_MspInit 0 */
+  68:Core/Src/usart.c **** 
+  69:Core/Src/usart.c ****   /* USER CODE END USART6_MspInit 0 */
+  70:Core/Src/usart.c ****     /* USART6 clock enable */
+  71:Core/Src/usart.c ****     __HAL_RCC_USART6_CLK_ENABLE();
+  72:Core/Src/usart.c **** 
+  73:Core/Src/usart.c ****     __HAL_RCC_GPIOC_CLK_ENABLE();
+  74:Core/Src/usart.c ****     /**USART6 GPIO Configuration
+  75:Core/Src/usart.c ****     PC6     ------> USART6_TX
+  76:Core/Src/usart.c ****     PC7     ------> USART6_RX
+  77:Core/Src/usart.c ****     */
+  78:Core/Src/usart.c ****     GPIO_InitStruct.Pin = GPIO_PIN_6|GPIO_PIN_7;
+  79:Core/Src/usart.c ****     GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
+  80:Core/Src/usart.c ****     GPIO_InitStruct.Pull = GPIO_NOPULL;
+  81:Core/Src/usart.c ****     GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_VERY_HIGH;
+  82:Core/Src/usart.c ****     GPIO_InitStruct.Alternate = GPIO_AF8_USART6;
+  83:Core/Src/usart.c ****     HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
+  84:Core/Src/usart.c **** 
+  85:Core/Src/usart.c ****     /* USART6 DMA Init */
+  86:Core/Src/usart.c ****     /* USART6_TX Init */
+  87:Core/Src/usart.c ****     hdma_usart6_tx.Instance = DMA2_Stream6;
+  88:Core/Src/usart.c ****     hdma_usart6_tx.Init.Channel = DMA_CHANNEL_5;
+  89:Core/Src/usart.c ****     hdma_usart6_tx.Init.Direction = DMA_MEMORY_TO_PERIPH;
+  90:Core/Src/usart.c ****     hdma_usart6_tx.Init.PeriphInc = DMA_PINC_DISABLE;
+  91:Core/Src/usart.c ****     hdma_usart6_tx.Init.MemInc = DMA_MINC_ENABLE;
+  92:Core/Src/usart.c ****     hdma_usart6_tx.Init.PeriphDataAlignment = DMA_PDATAALIGN_BYTE;
+  93:Core/Src/usart.c ****     hdma_usart6_tx.Init.MemDataAlignment = DMA_MDATAALIGN_BYTE;
+  94:Core/Src/usart.c ****     hdma_usart6_tx.Init.Mode = DMA_NORMAL;
+  95:Core/Src/usart.c ****     hdma_usart6_tx.Init.Priority = DMA_PRIORITY_LOW;
+  96:Core/Src/usart.c ****     hdma_usart6_tx.Init.FIFOMode = DMA_FIFOMODE_DISABLE;
+  97:Core/Src/usart.c ****     if (HAL_DMA_Init(&hdma_usart6_tx) != HAL_OK)
+  98:Core/Src/usart.c ****     {
+  99:Core/Src/usart.c ****       Error_Handler();
+ 100:Core/Src/usart.c ****     }
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccJleUyS.s 			page 5
+
+
+ 101:Core/Src/usart.c **** 
+ 102:Core/Src/usart.c ****     __HAL_LINKDMA(uartHandle,hdmatx,hdma_usart6_tx);
+ 103:Core/Src/usart.c **** 
+ 104:Core/Src/usart.c ****     /* USART6_RX Init */
+ 105:Core/Src/usart.c ****     hdma_usart6_rx.Instance = DMA2_Stream1;
+ 106:Core/Src/usart.c ****     hdma_usart6_rx.Init.Channel = DMA_CHANNEL_5;
+ 107:Core/Src/usart.c ****     hdma_usart6_rx.Init.Direction = DMA_PERIPH_TO_MEMORY;
+ 108:Core/Src/usart.c ****     hdma_usart6_rx.Init.PeriphInc = DMA_PINC_DISABLE;
+ 109:Core/Src/usart.c ****     hdma_usart6_rx.Init.MemInc = DMA_MINC_ENABLE;
+ 110:Core/Src/usart.c ****     hdma_usart6_rx.Init.PeriphDataAlignment = DMA_PDATAALIGN_BYTE;
+ 111:Core/Src/usart.c ****     hdma_usart6_rx.Init.MemDataAlignment = DMA_MDATAALIGN_BYTE;
+ 112:Core/Src/usart.c ****     hdma_usart6_rx.Init.Mode = DMA_NORMAL;
+ 113:Core/Src/usart.c ****     hdma_usart6_rx.Init.Priority = DMA_PRIORITY_LOW;
+ 114:Core/Src/usart.c ****     hdma_usart6_rx.Init.FIFOMode = DMA_FIFOMODE_DISABLE;
+ 115:Core/Src/usart.c ****     if (HAL_DMA_Init(&hdma_usart6_rx) != HAL_OK)
+ 116:Core/Src/usart.c ****     {
+ 117:Core/Src/usart.c ****       Error_Handler();
+ 118:Core/Src/usart.c ****     }
+ 119:Core/Src/usart.c **** 
+ 120:Core/Src/usart.c ****     __HAL_LINKDMA(uartHandle,hdmarx,hdma_usart6_rx);
+ 121:Core/Src/usart.c **** 
+ 122:Core/Src/usart.c ****     /* USART6 interrupt Init */
+ 123:Core/Src/usart.c ****     HAL_NVIC_SetPriority(USART6_IRQn, 5, 0);
+ 124:Core/Src/usart.c ****     HAL_NVIC_EnableIRQ(USART6_IRQn);
+ 125:Core/Src/usart.c ****   /* USER CODE BEGIN USART6_MspInit 1 */
+ 126:Core/Src/usart.c **** 
+ 127:Core/Src/usart.c ****   /* USER CODE END USART6_MspInit 1 */
+ 128:Core/Src/usart.c ****   }
+ 129:Core/Src/usart.c **** }
+ 131              		.loc 1 129 1 view .LVU30
+ 132 0018 09B0     		add	sp, sp, #36
+ 133              	.LCFI3:
+ 134              		.cfi_remember_state
+ 135              		.cfi_def_cfa_offset 12
+ 136              		@ sp needed
+ 137 001a 30BD     		pop	{r4, r5, pc}
+ 138              	.LVL4:
+ 139              	.L12:
+ 140              	.LCFI4:
+ 141              		.cfi_restore_state
+ 142              		.loc 1 129 1 view .LVU31
+ 143 001c 0446     		mov	r4, r0
+  71:Core/Src/usart.c **** 
+ 144              		.loc 1 71 5 is_stmt 1 view .LVU32
+ 145              	.LBB2:
+  71:Core/Src/usart.c **** 
+ 146              		.loc 1 71 5 view .LVU33
+ 147 001e 0025     		movs	r5, #0
+ 148 0020 0195     		str	r5, [sp, #4]
+  71:Core/Src/usart.c **** 
+ 149              		.loc 1 71 5 view .LVU34
+ 150 0022 03F59233 		add	r3, r3, #74752
+ 151 0026 5A6C     		ldr	r2, [r3, #68]
+ 152 0028 42F02002 		orr	r2, r2, #32
+ 153 002c 5A64     		str	r2, [r3, #68]
+  71:Core/Src/usart.c **** 
+ 154              		.loc 1 71 5 view .LVU35
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccJleUyS.s 			page 6
+
+
+ 155 002e 5A6C     		ldr	r2, [r3, #68]
+ 156 0030 02F02002 		and	r2, r2, #32
+ 157 0034 0192     		str	r2, [sp, #4]
+  71:Core/Src/usart.c **** 
+ 158              		.loc 1 71 5 view .LVU36
+ 159 0036 019A     		ldr	r2, [sp, #4]
+ 160              	.LBE2:
+  71:Core/Src/usart.c **** 
+ 161              		.loc 1 71 5 view .LVU37
+  73:Core/Src/usart.c ****     /**USART6 GPIO Configuration
+ 162              		.loc 1 73 5 view .LVU38
+ 163              	.LBB3:
+  73:Core/Src/usart.c ****     /**USART6 GPIO Configuration
+ 164              		.loc 1 73 5 view .LVU39
+ 165 0038 0295     		str	r5, [sp, #8]
+  73:Core/Src/usart.c ****     /**USART6 GPIO Configuration
+ 166              		.loc 1 73 5 view .LVU40
+ 167 003a 1A6B     		ldr	r2, [r3, #48]
+ 168 003c 42F00402 		orr	r2, r2, #4
+ 169 0040 1A63     		str	r2, [r3, #48]
+  73:Core/Src/usart.c ****     /**USART6 GPIO Configuration
+ 170              		.loc 1 73 5 view .LVU41
+ 171 0042 1B6B     		ldr	r3, [r3, #48]
+ 172 0044 03F00403 		and	r3, r3, #4
+ 173 0048 0293     		str	r3, [sp, #8]
+  73:Core/Src/usart.c ****     /**USART6 GPIO Configuration
+ 174              		.loc 1 73 5 view .LVU42
+ 175 004a 029B     		ldr	r3, [sp, #8]
+ 176              	.LBE3:
+  73:Core/Src/usart.c ****     /**USART6 GPIO Configuration
+ 177              		.loc 1 73 5 view .LVU43
+  78:Core/Src/usart.c ****     GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
+ 178              		.loc 1 78 5 view .LVU44
+  78:Core/Src/usart.c ****     GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
+ 179              		.loc 1 78 25 is_stmt 0 view .LVU45
+ 180 004c C023     		movs	r3, #192
+ 181 004e 0393     		str	r3, [sp, #12]
+  79:Core/Src/usart.c ****     GPIO_InitStruct.Pull = GPIO_NOPULL;
+ 182              		.loc 1 79 5 is_stmt 1 view .LVU46
+  79:Core/Src/usart.c ****     GPIO_InitStruct.Pull = GPIO_NOPULL;
+ 183              		.loc 1 79 26 is_stmt 0 view .LVU47
+ 184 0050 0223     		movs	r3, #2
+ 185 0052 0493     		str	r3, [sp, #16]
+  80:Core/Src/usart.c ****     GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_VERY_HIGH;
+ 186              		.loc 1 80 5 is_stmt 1 view .LVU48
+  81:Core/Src/usart.c ****     GPIO_InitStruct.Alternate = GPIO_AF8_USART6;
+ 187              		.loc 1 81 5 view .LVU49
+  81:Core/Src/usart.c ****     GPIO_InitStruct.Alternate = GPIO_AF8_USART6;
+ 188              		.loc 1 81 27 is_stmt 0 view .LVU50
+ 189 0054 0323     		movs	r3, #3
+ 190 0056 0693     		str	r3, [sp, #24]
+  82:Core/Src/usart.c ****     HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
+ 191              		.loc 1 82 5 is_stmt 1 view .LVU51
+  82:Core/Src/usart.c ****     HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
+ 192              		.loc 1 82 31 is_stmt 0 view .LVU52
+ 193 0058 0823     		movs	r3, #8
+ 194 005a 0793     		str	r3, [sp, #28]
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccJleUyS.s 			page 7
+
+
+  83:Core/Src/usart.c **** 
+ 195              		.loc 1 83 5 is_stmt 1 view .LVU53
+ 196 005c 03A9     		add	r1, sp, #12
+ 197 005e 2148     		ldr	r0, .L15+4
+ 198              	.LVL5:
+  83:Core/Src/usart.c **** 
+ 199              		.loc 1 83 5 is_stmt 0 view .LVU54
+ 200 0060 FFF7FEFF 		bl	HAL_GPIO_Init
+ 201              	.LVL6:
+  87:Core/Src/usart.c ****     hdma_usart6_tx.Init.Channel = DMA_CHANNEL_5;
+ 202              		.loc 1 87 5 is_stmt 1 view .LVU55
+  87:Core/Src/usart.c ****     hdma_usart6_tx.Init.Channel = DMA_CHANNEL_5;
+ 203              		.loc 1 87 29 is_stmt 0 view .LVU56
+ 204 0064 2048     		ldr	r0, .L15+8
+ 205 0066 214B     		ldr	r3, .L15+12
+ 206 0068 0360     		str	r3, [r0]
+  88:Core/Src/usart.c ****     hdma_usart6_tx.Init.Direction = DMA_MEMORY_TO_PERIPH;
+ 207              		.loc 1 88 5 is_stmt 1 view .LVU57
+  88:Core/Src/usart.c ****     hdma_usart6_tx.Init.Direction = DMA_MEMORY_TO_PERIPH;
+ 208              		.loc 1 88 33 is_stmt 0 view .LVU58
+ 209 006a 4FF02063 		mov	r3, #167772160
+ 210 006e 4360     		str	r3, [r0, #4]
+  89:Core/Src/usart.c ****     hdma_usart6_tx.Init.PeriphInc = DMA_PINC_DISABLE;
+ 211              		.loc 1 89 5 is_stmt 1 view .LVU59
+  89:Core/Src/usart.c ****     hdma_usart6_tx.Init.PeriphInc = DMA_PINC_DISABLE;
+ 212              		.loc 1 89 35 is_stmt 0 view .LVU60
+ 213 0070 4023     		movs	r3, #64
+ 214 0072 8360     		str	r3, [r0, #8]
+  90:Core/Src/usart.c ****     hdma_usart6_tx.Init.MemInc = DMA_MINC_ENABLE;
+ 215              		.loc 1 90 5 is_stmt 1 view .LVU61
+  90:Core/Src/usart.c ****     hdma_usart6_tx.Init.MemInc = DMA_MINC_ENABLE;
+ 216              		.loc 1 90 35 is_stmt 0 view .LVU62
+ 217 0074 C560     		str	r5, [r0, #12]
+  91:Core/Src/usart.c ****     hdma_usart6_tx.Init.PeriphDataAlignment = DMA_PDATAALIGN_BYTE;
+ 218              		.loc 1 91 5 is_stmt 1 view .LVU63
+  91:Core/Src/usart.c ****     hdma_usart6_tx.Init.PeriphDataAlignment = DMA_PDATAALIGN_BYTE;
+ 219              		.loc 1 91 32 is_stmt 0 view .LVU64
+ 220 0076 4FF48063 		mov	r3, #1024
+ 221 007a 0361     		str	r3, [r0, #16]
+  92:Core/Src/usart.c ****     hdma_usart6_tx.Init.MemDataAlignment = DMA_MDATAALIGN_BYTE;
+ 222              		.loc 1 92 5 is_stmt 1 view .LVU65
+  92:Core/Src/usart.c ****     hdma_usart6_tx.Init.MemDataAlignment = DMA_MDATAALIGN_BYTE;
+ 223              		.loc 1 92 45 is_stmt 0 view .LVU66
+ 224 007c 4561     		str	r5, [r0, #20]
+  93:Core/Src/usart.c ****     hdma_usart6_tx.Init.Mode = DMA_NORMAL;
+ 225              		.loc 1 93 5 is_stmt 1 view .LVU67
+  93:Core/Src/usart.c ****     hdma_usart6_tx.Init.Mode = DMA_NORMAL;
+ 226              		.loc 1 93 42 is_stmt 0 view .LVU68
+ 227 007e 8561     		str	r5, [r0, #24]
+  94:Core/Src/usart.c ****     hdma_usart6_tx.Init.Priority = DMA_PRIORITY_LOW;
+ 228              		.loc 1 94 5 is_stmt 1 view .LVU69
+  94:Core/Src/usart.c ****     hdma_usart6_tx.Init.Priority = DMA_PRIORITY_LOW;
+ 229              		.loc 1 94 30 is_stmt 0 view .LVU70
+ 230 0080 C561     		str	r5, [r0, #28]
+  95:Core/Src/usart.c ****     hdma_usart6_tx.Init.FIFOMode = DMA_FIFOMODE_DISABLE;
+ 231              		.loc 1 95 5 is_stmt 1 view .LVU71
+  95:Core/Src/usart.c ****     hdma_usart6_tx.Init.FIFOMode = DMA_FIFOMODE_DISABLE;
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccJleUyS.s 			page 8
+
+
+ 232              		.loc 1 95 34 is_stmt 0 view .LVU72
+ 233 0082 0562     		str	r5, [r0, #32]
+  96:Core/Src/usart.c ****     if (HAL_DMA_Init(&hdma_usart6_tx) != HAL_OK)
+ 234              		.loc 1 96 5 is_stmt 1 view .LVU73
+  96:Core/Src/usart.c ****     if (HAL_DMA_Init(&hdma_usart6_tx) != HAL_OK)
+ 235              		.loc 1 96 34 is_stmt 0 view .LVU74
+ 236 0084 4562     		str	r5, [r0, #36]
+  97:Core/Src/usart.c ****     {
+ 237              		.loc 1 97 5 is_stmt 1 view .LVU75
+  97:Core/Src/usart.c ****     {
+ 238              		.loc 1 97 9 is_stmt 0 view .LVU76
+ 239 0086 FFF7FEFF 		bl	HAL_DMA_Init
+ 240              	.LVL7:
+  97:Core/Src/usart.c ****     {
+ 241              		.loc 1 97 8 view .LVU77
+ 242 008a 10BB     		cbnz	r0, .L13
+ 243              	.L9:
+ 102:Core/Src/usart.c **** 
+ 244              		.loc 1 102 5 is_stmt 1 view .LVU78
+ 102:Core/Src/usart.c **** 
+ 245              		.loc 1 102 5 view .LVU79
+ 246 008c 164B     		ldr	r3, .L15+8
+ 247 008e A363     		str	r3, [r4, #56]
+ 102:Core/Src/usart.c **** 
+ 248              		.loc 1 102 5 view .LVU80
+ 249 0090 9C63     		str	r4, [r3, #56]
+ 102:Core/Src/usart.c **** 
+ 250              		.loc 1 102 5 view .LVU81
+ 105:Core/Src/usart.c ****     hdma_usart6_rx.Init.Channel = DMA_CHANNEL_5;
+ 251              		.loc 1 105 5 view .LVU82
+ 105:Core/Src/usart.c ****     hdma_usart6_rx.Init.Channel = DMA_CHANNEL_5;
+ 252              		.loc 1 105 29 is_stmt 0 view .LVU83
+ 253 0092 1748     		ldr	r0, .L15+16
+ 254 0094 174B     		ldr	r3, .L15+20
+ 255 0096 0360     		str	r3, [r0]
+ 106:Core/Src/usart.c ****     hdma_usart6_rx.Init.Direction = DMA_PERIPH_TO_MEMORY;
+ 256              		.loc 1 106 5 is_stmt 1 view .LVU84
+ 106:Core/Src/usart.c ****     hdma_usart6_rx.Init.Direction = DMA_PERIPH_TO_MEMORY;
+ 257              		.loc 1 106 33 is_stmt 0 view .LVU85
+ 258 0098 4FF02063 		mov	r3, #167772160
+ 259 009c 4360     		str	r3, [r0, #4]
+ 107:Core/Src/usart.c ****     hdma_usart6_rx.Init.PeriphInc = DMA_PINC_DISABLE;
+ 260              		.loc 1 107 5 is_stmt 1 view .LVU86
+ 107:Core/Src/usart.c ****     hdma_usart6_rx.Init.PeriphInc = DMA_PINC_DISABLE;
+ 261              		.loc 1 107 35 is_stmt 0 view .LVU87
+ 262 009e 0023     		movs	r3, #0
+ 263 00a0 8360     		str	r3, [r0, #8]
+ 108:Core/Src/usart.c ****     hdma_usart6_rx.Init.MemInc = DMA_MINC_ENABLE;
+ 264              		.loc 1 108 5 is_stmt 1 view .LVU88
+ 108:Core/Src/usart.c ****     hdma_usart6_rx.Init.MemInc = DMA_MINC_ENABLE;
+ 265              		.loc 1 108 35 is_stmt 0 view .LVU89
+ 266 00a2 C360     		str	r3, [r0, #12]
+ 109:Core/Src/usart.c ****     hdma_usart6_rx.Init.PeriphDataAlignment = DMA_PDATAALIGN_BYTE;
+ 267              		.loc 1 109 5 is_stmt 1 view .LVU90
+ 109:Core/Src/usart.c ****     hdma_usart6_rx.Init.PeriphDataAlignment = DMA_PDATAALIGN_BYTE;
+ 268              		.loc 1 109 32 is_stmt 0 view .LVU91
+ 269 00a4 4FF48062 		mov	r2, #1024
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccJleUyS.s 			page 9
+
+
+ 270 00a8 0261     		str	r2, [r0, #16]
+ 110:Core/Src/usart.c ****     hdma_usart6_rx.Init.MemDataAlignment = DMA_MDATAALIGN_BYTE;
+ 271              		.loc 1 110 5 is_stmt 1 view .LVU92
+ 110:Core/Src/usart.c ****     hdma_usart6_rx.Init.MemDataAlignment = DMA_MDATAALIGN_BYTE;
+ 272              		.loc 1 110 45 is_stmt 0 view .LVU93
+ 273 00aa 4361     		str	r3, [r0, #20]
+ 111:Core/Src/usart.c ****     hdma_usart6_rx.Init.Mode = DMA_NORMAL;
+ 274              		.loc 1 111 5 is_stmt 1 view .LVU94
+ 111:Core/Src/usart.c ****     hdma_usart6_rx.Init.Mode = DMA_NORMAL;
+ 275              		.loc 1 111 42 is_stmt 0 view .LVU95
+ 276 00ac 8361     		str	r3, [r0, #24]
+ 112:Core/Src/usart.c ****     hdma_usart6_rx.Init.Priority = DMA_PRIORITY_LOW;
+ 277              		.loc 1 112 5 is_stmt 1 view .LVU96
+ 112:Core/Src/usart.c ****     hdma_usart6_rx.Init.Priority = DMA_PRIORITY_LOW;
+ 278              		.loc 1 112 30 is_stmt 0 view .LVU97
+ 279 00ae C361     		str	r3, [r0, #28]
+ 113:Core/Src/usart.c ****     hdma_usart6_rx.Init.FIFOMode = DMA_FIFOMODE_DISABLE;
+ 280              		.loc 1 113 5 is_stmt 1 view .LVU98
+ 113:Core/Src/usart.c ****     hdma_usart6_rx.Init.FIFOMode = DMA_FIFOMODE_DISABLE;
+ 281              		.loc 1 113 34 is_stmt 0 view .LVU99
+ 282 00b0 0362     		str	r3, [r0, #32]
+ 114:Core/Src/usart.c ****     if (HAL_DMA_Init(&hdma_usart6_rx) != HAL_OK)
+ 283              		.loc 1 114 5 is_stmt 1 view .LVU100
+ 114:Core/Src/usart.c ****     if (HAL_DMA_Init(&hdma_usart6_rx) != HAL_OK)
+ 284              		.loc 1 114 34 is_stmt 0 view .LVU101
+ 285 00b2 4362     		str	r3, [r0, #36]
+ 115:Core/Src/usart.c ****     {
+ 286              		.loc 1 115 5 is_stmt 1 view .LVU102
+ 115:Core/Src/usart.c ****     {
+ 287              		.loc 1 115 9 is_stmt 0 view .LVU103
+ 288 00b4 FFF7FEFF 		bl	HAL_DMA_Init
+ 289              	.LVL8:
+ 115:Core/Src/usart.c ****     {
+ 290              		.loc 1 115 8 view .LVU104
+ 291 00b8 70B9     		cbnz	r0, .L14
+ 292              	.L10:
+ 120:Core/Src/usart.c **** 
+ 293              		.loc 1 120 5 is_stmt 1 view .LVU105
+ 120:Core/Src/usart.c **** 
+ 294              		.loc 1 120 5 view .LVU106
+ 295 00ba 0D4B     		ldr	r3, .L15+16
+ 296 00bc E363     		str	r3, [r4, #60]
+ 120:Core/Src/usart.c **** 
+ 297              		.loc 1 120 5 view .LVU107
+ 298 00be 9C63     		str	r4, [r3, #56]
+ 120:Core/Src/usart.c **** 
+ 299              		.loc 1 120 5 view .LVU108
+ 123:Core/Src/usart.c ****     HAL_NVIC_EnableIRQ(USART6_IRQn);
+ 300              		.loc 1 123 5 view .LVU109
+ 301 00c0 0022     		movs	r2, #0
+ 302 00c2 0521     		movs	r1, #5
+ 303 00c4 4720     		movs	r0, #71
+ 304 00c6 FFF7FEFF 		bl	HAL_NVIC_SetPriority
+ 305              	.LVL9:
+ 124:Core/Src/usart.c ****   /* USER CODE BEGIN USART6_MspInit 1 */
+ 306              		.loc 1 124 5 view .LVU110
+ 307 00ca 4720     		movs	r0, #71
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccJleUyS.s 			page 10
+
+
+ 308 00cc FFF7FEFF 		bl	HAL_NVIC_EnableIRQ
+ 309              	.LVL10:
+ 310              		.loc 1 129 1 is_stmt 0 view .LVU111
+ 311 00d0 A2E7     		b	.L7
+ 312              	.L13:
+  99:Core/Src/usart.c ****     }
+ 313              		.loc 1 99 7 is_stmt 1 view .LVU112
+ 314 00d2 FFF7FEFF 		bl	Error_Handler
+ 315              	.LVL11:
+ 316 00d6 D9E7     		b	.L9
+ 317              	.L14:
+ 117:Core/Src/usart.c ****     }
+ 318              		.loc 1 117 7 view .LVU113
+ 319 00d8 FFF7FEFF 		bl	Error_Handler
+ 320              	.LVL12:
+ 321 00dc EDE7     		b	.L10
+ 322              	.L16:
+ 323 00de 00BF     		.align	2
+ 324              	.L15:
+ 325 00e0 00140140 		.word	1073812480
+ 326 00e4 00080240 		.word	1073874944
+ 327 00e8 00000000 		.word	.LANCHOR1
+ 328 00ec A0640240 		.word	1073898656
+ 329 00f0 00000000 		.word	.LANCHOR2
+ 330 00f4 28640240 		.word	1073898536
+ 331              		.cfi_endproc
+ 332              	.LFE135:
+ 334              		.section	.text.HAL_UART_MspDeInit,"ax",%progbits
+ 335              		.align	1
+ 336              		.global	HAL_UART_MspDeInit
+ 337              		.syntax unified
+ 338              		.thumb
+ 339              		.thumb_func
+ 341              	HAL_UART_MspDeInit:
+ 342              	.LVL13:
+ 343              	.LFB136:
+ 130:Core/Src/usart.c **** 
+ 131:Core/Src/usart.c **** void HAL_UART_MspDeInit(UART_HandleTypeDef* uartHandle)
+ 132:Core/Src/usart.c **** {
+ 344              		.loc 1 132 1 view -0
+ 345              		.cfi_startproc
+ 346              		@ args = 0, pretend = 0, frame = 0
+ 347              		@ frame_needed = 0, uses_anonymous_args = 0
+ 133:Core/Src/usart.c **** 
+ 134:Core/Src/usart.c ****   if(uartHandle->Instance==USART6)
+ 348              		.loc 1 134 3 view .LVU115
+ 349              		.loc 1 134 16 is_stmt 0 view .LVU116
+ 350 0000 0268     		ldr	r2, [r0]
+ 351              		.loc 1 134 5 view .LVU117
+ 352 0002 0C4B     		ldr	r3, .L24
+ 353 0004 9A42     		cmp	r2, r3
+ 354 0006 00D0     		beq	.L23
+ 355 0008 7047     		bx	lr
+ 356              	.L23:
+ 132:Core/Src/usart.c **** 
+ 357              		.loc 1 132 1 view .LVU118
+ 358 000a 10B5     		push	{r4, lr}
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccJleUyS.s 			page 11
+
+
+ 359              	.LCFI5:
+ 360              		.cfi_def_cfa_offset 8
+ 361              		.cfi_offset 4, -8
+ 362              		.cfi_offset 14, -4
+ 363 000c 0446     		mov	r4, r0
+ 135:Core/Src/usart.c ****   {
+ 136:Core/Src/usart.c ****   /* USER CODE BEGIN USART6_MspDeInit 0 */
+ 137:Core/Src/usart.c **** 
+ 138:Core/Src/usart.c ****   /* USER CODE END USART6_MspDeInit 0 */
+ 139:Core/Src/usart.c ****     /* Peripheral clock disable */
+ 140:Core/Src/usart.c ****     __HAL_RCC_USART6_CLK_DISABLE();
+ 364              		.loc 1 140 5 is_stmt 1 view .LVU119
+ 365 000e 0A4A     		ldr	r2, .L24+4
+ 366 0010 536C     		ldr	r3, [r2, #68]
+ 367 0012 23F02003 		bic	r3, r3, #32
+ 368 0016 5364     		str	r3, [r2, #68]
+ 141:Core/Src/usart.c **** 
+ 142:Core/Src/usart.c ****     /**USART6 GPIO Configuration
+ 143:Core/Src/usart.c ****     PC6     ------> USART6_TX
+ 144:Core/Src/usart.c ****     PC7     ------> USART6_RX
+ 145:Core/Src/usart.c ****     */
+ 146:Core/Src/usart.c ****     HAL_GPIO_DeInit(GPIOC, GPIO_PIN_6|GPIO_PIN_7);
+ 369              		.loc 1 146 5 view .LVU120
+ 370 0018 C021     		movs	r1, #192
+ 371 001a 0848     		ldr	r0, .L24+8
+ 372              	.LVL14:
+ 373              		.loc 1 146 5 is_stmt 0 view .LVU121
+ 374 001c FFF7FEFF 		bl	HAL_GPIO_DeInit
+ 375              	.LVL15:
+ 147:Core/Src/usart.c **** 
+ 148:Core/Src/usart.c ****     /* USART6 DMA DeInit */
+ 149:Core/Src/usart.c ****     HAL_DMA_DeInit(uartHandle->hdmatx);
+ 376              		.loc 1 149 5 is_stmt 1 view .LVU122
+ 377 0020 A06B     		ldr	r0, [r4, #56]
+ 378 0022 FFF7FEFF 		bl	HAL_DMA_DeInit
+ 379              	.LVL16:
+ 150:Core/Src/usart.c ****     HAL_DMA_DeInit(uartHandle->hdmarx);
+ 380              		.loc 1 150 5 view .LVU123
+ 381 0026 E06B     		ldr	r0, [r4, #60]
+ 382 0028 FFF7FEFF 		bl	HAL_DMA_DeInit
+ 383              	.LVL17:
+ 151:Core/Src/usart.c **** 
+ 152:Core/Src/usart.c ****     /* USART6 interrupt Deinit */
+ 153:Core/Src/usart.c ****     HAL_NVIC_DisableIRQ(USART6_IRQn);
+ 384              		.loc 1 153 5 view .LVU124
+ 385 002c 4720     		movs	r0, #71
+ 386 002e FFF7FEFF 		bl	HAL_NVIC_DisableIRQ
+ 387              	.LVL18:
+ 154:Core/Src/usart.c ****   /* USER CODE BEGIN USART6_MspDeInit 1 */
+ 155:Core/Src/usart.c **** 
+ 156:Core/Src/usart.c ****   /* USER CODE END USART6_MspDeInit 1 */
+ 157:Core/Src/usart.c ****   }
+ 158:Core/Src/usart.c **** }
+ 388              		.loc 1 158 1 is_stmt 0 view .LVU125
+ 389 0032 10BD     		pop	{r4, pc}
+ 390              	.LVL19:
+ 391              	.L25:
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccJleUyS.s 			page 12
+
+
+ 392              		.loc 1 158 1 view .LVU126
+ 393              		.align	2
+ 394              	.L24:
+ 395 0034 00140140 		.word	1073812480
+ 396 0038 00380240 		.word	1073887232
+ 397 003c 00080240 		.word	1073874944
+ 398              		.cfi_endproc
+ 399              	.LFE136:
+ 401              		.global	hdma_usart6_rx
+ 402              		.global	hdma_usart6_tx
+ 403              		.global	huart6
+ 404              		.section	.bss.hdma_usart6_rx,"aw",%nobits
+ 405              		.align	2
+ 406              		.set	.LANCHOR2,. + 0
+ 409              	hdma_usart6_rx:
+ 410 0000 00000000 		.space	96
+ 410      00000000 
+ 410      00000000 
+ 410      00000000 
+ 410      00000000 
+ 411              		.section	.bss.hdma_usart6_tx,"aw",%nobits
+ 412              		.align	2
+ 413              		.set	.LANCHOR1,. + 0
+ 416              	hdma_usart6_tx:
+ 417 0000 00000000 		.space	96
+ 417      00000000 
+ 417      00000000 
+ 417      00000000 
+ 417      00000000 
+ 418              		.section	.bss.huart6,"aw",%nobits
+ 419              		.align	2
+ 420              		.set	.LANCHOR0,. + 0
+ 423              	huart6:
+ 424 0000 00000000 		.space	72
+ 424      00000000 
+ 424      00000000 
+ 424      00000000 
+ 424      00000000 
+ 425              		.text
+ 426              	.Letext0:
+ 427              		.file 2 "d:\\chain\\gcc-arm-none-eabi-10.3-2021.10-win32\\gcc-arm-none-eabi-10.3-2021.10\\arm-none
+ 428              		.file 3 "d:\\chain\\gcc-arm-none-eabi-10.3-2021.10-win32\\gcc-arm-none-eabi-10.3-2021.10\\arm-none
+ 429              		.file 4 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f427xx.h"
+ 430              		.file 5 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h"
+ 431              		.file 6 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio.h"
+ 432              		.file 7 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma.h"
+ 433              		.file 8 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h"
+ 434              		.file 9 "Core/Inc/usart.h"
+ 435              		.file 10 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_cortex.h"
+ 436              		.file 11 "Core/Inc/main.h"
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccJleUyS.s 			page 13
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 usart.c
+C:\Users\ASUS\AppData\Local\Temp\ccJleUyS.s:20     .text.MX_USART6_UART_Init:00000000 $t
+C:\Users\ASUS\AppData\Local\Temp\ccJleUyS.s:26     .text.MX_USART6_UART_Init:00000000 MX_USART6_UART_Init
+C:\Users\ASUS\AppData\Local\Temp\ccJleUyS.s:85     .text.MX_USART6_UART_Init:0000002c $d
+C:\Users\ASUS\AppData\Local\Temp\ccJleUyS.s:91     .text.HAL_UART_MspInit:00000000 $t
+C:\Users\ASUS\AppData\Local\Temp\ccJleUyS.s:97     .text.HAL_UART_MspInit:00000000 HAL_UART_MspInit
+C:\Users\ASUS\AppData\Local\Temp\ccJleUyS.s:325    .text.HAL_UART_MspInit:000000e0 $d
+C:\Users\ASUS\AppData\Local\Temp\ccJleUyS.s:335    .text.HAL_UART_MspDeInit:00000000 $t
+C:\Users\ASUS\AppData\Local\Temp\ccJleUyS.s:341    .text.HAL_UART_MspDeInit:00000000 HAL_UART_MspDeInit
+C:\Users\ASUS\AppData\Local\Temp\ccJleUyS.s:395    .text.HAL_UART_MspDeInit:00000034 $d
+C:\Users\ASUS\AppData\Local\Temp\ccJleUyS.s:409    .bss.hdma_usart6_rx:00000000 hdma_usart6_rx
+C:\Users\ASUS\AppData\Local\Temp\ccJleUyS.s:416    .bss.hdma_usart6_tx:00000000 hdma_usart6_tx
+C:\Users\ASUS\AppData\Local\Temp\ccJleUyS.s:423    .bss.huart6:00000000 huart6
+C:\Users\ASUS\AppData\Local\Temp\ccJleUyS.s:405    .bss.hdma_usart6_rx:00000000 $d
+C:\Users\ASUS\AppData\Local\Temp\ccJleUyS.s:412    .bss.hdma_usart6_tx:00000000 $d
+C:\Users\ASUS\AppData\Local\Temp\ccJleUyS.s:419    .bss.huart6:00000000 $d
+
+UNDEFINED SYMBOLS
+HAL_UART_Init
+Error_Handler
+HAL_GPIO_Init
+HAL_DMA_Init
+HAL_NVIC_SetPriority
+HAL_NVIC_EnableIRQ
+HAL_GPIO_DeInit
+HAL_DMA_DeInit
+HAL_NVIC_DisableIRQ
