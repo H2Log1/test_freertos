@@ -31,7 +31,8 @@
 
 /* Private typedef -----------------------------------------------------------*/
 /* USER CODE BEGIN PTD */
-uint32_t btn_counter = 0;
+uint16_t btn1_counter = 0;
+uint16_t btn2_counter = 0;
 
 /* USER CODE END PTD */
 
@@ -70,10 +71,15 @@ const osThreadAttr_t Motor_Task_attributes = {
   .stack_size = 128 * 4,
   .priority = (osPriority_t) osPriorityNormal,
 };
-/* Definitions for Btn_Queue */
-osMessageQueueId_t Btn_QueueHandle;
-const osMessageQueueAttr_t Btn_Queue_attributes = {
-  .name = "Btn_Queue"
+/* Definitions for Btn1_Queue */
+osMessageQueueId_t Btn1_QueueHandle;
+const osMessageQueueAttr_t Btn1_Queue_attributes = {
+  .name = "Btn1_Queue"
+};
+/* Definitions for Btn2_Queue */
+osMessageQueueId_t Btn2_QueueHandle;
+const osMessageQueueAttr_t Btn2_Queue_attributes = {
+  .name = "Btn2_Queue"
 };
 
 /* Private function prototypes -----------------------------------------------*/
@@ -110,8 +116,11 @@ void MX_FREERTOS_Init(void) {
   /* USER CODE END RTOS_TIMERS */
 
   /* Create the queue(s) */
-  /* creation of Btn_Queue */
-  Btn_QueueHandle = osMessageQueueNew (16, sizeof(uint32_t), &Btn_Queue_attributes);
+  /* creation of Btn1_Queue */
+  Btn1_QueueHandle = osMessageQueueNew (16, sizeof(uint16_t), &Btn1_Queue_attributes);
+
+  /* creation of Btn2_Queue */
+  Btn2_QueueHandle = osMessageQueueNew (16, sizeof(uint16_t), &Btn2_Queue_attributes);
 
   /* USER CODE BEGIN RTOS_QUEUES */
   /* add queues, ... */
@@ -156,8 +165,8 @@ void StartBtn_Task(void *argument)
       osDelay(10); // 防抖延时
       if (HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_9) == GPIO_PIN_RESET)
       {
-        btn_counter++;
-        osMessageQueuePut(Btn_QueueHandle, &btn_counter, NULL, osWaitForever);
+        btn1_counter++;
+        osMessageQueuePut(Btn1_QueueHandle, &btn1_counter, NULL, osWaitForever);
       }
       while (HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_9) == GPIO_PIN_RESET)
       {
@@ -186,8 +195,8 @@ void StartLED_Task(void *argument)
   /* Infinite loop */
   for(;;)
   {
-    // osMessageQueueGet(Btn_QueueHandle, &btn_counter, NULL, osWaitForever);
-    // if (btn_counter % 2 == 0) {
+    // osMessageQueueGet(Btn1_QueueHandle, &btn1_counter, NULL, osWaitForever);
+    // if (btn1_counter % 2 == 0) {
     //   HAL_GPIO_WritePin(GPIOC, GPIO_PIN_0, GPIO_PIN_RESET);
     // } 
     // else 
@@ -217,8 +226,8 @@ void StartMotor_Task(void *argument)
   /* Infinite loop */
   for(;;)
   {
-    osMessageQueueGet(Btn_QueueHandle, &btn_counter, NULL, osWaitForever);
-    if (btn_counter % 2 == 0)
+    osMessageQueueGet(Btn1_QueueHandle, &btn1_counter, NULL, osWaitForever);
+    if (btn1_counter % 2 == 0)
     {
       Emm_V5_Vel_Control(0x01, 0x00, motor_vel_init, 50, false);
     }
