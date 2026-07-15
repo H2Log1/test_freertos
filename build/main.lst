@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccTImMlp.s 			page 1
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccEuWvkD.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccTImMlp.s 			page 1
   27:Core/Src/main.c **** /* USER CODE BEGIN Includes */
   28:Core/Src/main.c **** 
   29:Core/Src/main.c **** /* USER CODE END Includes */
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccTImMlp.s 			page 2
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccEuWvkD.s 			page 2
 
 
   30:Core/Src/main.c **** 
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccTImMlp.s 			page 1
   84:Core/Src/main.c ****   /* Configure the system clock */
   85:Core/Src/main.c ****   SystemClock_Config();
   86:Core/Src/main.c **** 
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccTImMlp.s 			page 3
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccEuWvkD.s 			page 3
 
 
   87:Core/Src/main.c ****   /* USER CODE BEGIN SysInit */
@@ -151,120 +151,122 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccTImMlp.s 			page 1
  114:Core/Src/main.c ****     /* USER CODE END WHILE */
  115:Core/Src/main.c **** 
  116:Core/Src/main.c ****     /* USER CODE BEGIN 3 */
- 117:Core/Src/main.c ****   }
- 118:Core/Src/main.c ****   /* USER CODE END 3 */
- 119:Core/Src/main.c **** }
- 120:Core/Src/main.c **** 
- 121:Core/Src/main.c **** /**
- 122:Core/Src/main.c ****   * @brief System Clock Configuration
- 123:Core/Src/main.c ****   * @retval None
- 124:Core/Src/main.c ****   */
- 125:Core/Src/main.c **** void SystemClock_Config(void)
- 126:Core/Src/main.c **** {
- 127:Core/Src/main.c ****   RCC_OscInitTypeDef RCC_OscInitStruct = {0};
- 128:Core/Src/main.c ****   RCC_ClkInitTypeDef RCC_ClkInitStruct = {0};
- 129:Core/Src/main.c **** 
- 130:Core/Src/main.c ****   /** Configure the main internal regulator output voltage
- 131:Core/Src/main.c ****   */
- 132:Core/Src/main.c ****   __HAL_RCC_PWR_CLK_ENABLE();
- 133:Core/Src/main.c ****   __HAL_PWR_VOLTAGESCALING_CONFIG(PWR_REGULATOR_VOLTAGE_SCALE1);
- 134:Core/Src/main.c **** 
- 135:Core/Src/main.c ****   /** Initializes the RCC Oscillators according to the specified parameters
- 136:Core/Src/main.c ****   * in the RCC_OscInitTypeDef structure.
- 137:Core/Src/main.c ****   */
- 138:Core/Src/main.c ****   RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSE;
- 139:Core/Src/main.c ****   RCC_OscInitStruct.HSEState = RCC_HSE_BYPASS;
- 140:Core/Src/main.c ****   RCC_OscInitStruct.PLL.PLLState = RCC_PLL_ON;
- 141:Core/Src/main.c ****   RCC_OscInitStruct.PLL.PLLSource = RCC_PLLSOURCE_HSE;
- 142:Core/Src/main.c ****   RCC_OscInitStruct.PLL.PLLM = 15;
- 143:Core/Src/main.c ****   RCC_OscInitStruct.PLL.PLLN = 216;
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccTImMlp.s 			page 4
+ 117:Core/Src/main.c ****     HAL_GPIO_TogglePin(GPIOC, GPIO_PIN_0);
+ 118:Core/Src/main.c ****     HAL_Delay(100);
+ 119:Core/Src/main.c ****   }
+ 120:Core/Src/main.c ****   /* USER CODE END 3 */
+ 121:Core/Src/main.c **** }
+ 122:Core/Src/main.c **** 
+ 123:Core/Src/main.c **** /**
+ 124:Core/Src/main.c ****   * @brief System Clock Configuration
+ 125:Core/Src/main.c ****   * @retval None
+ 126:Core/Src/main.c ****   */
+ 127:Core/Src/main.c **** void SystemClock_Config(void)
+ 128:Core/Src/main.c **** {
+ 129:Core/Src/main.c ****   RCC_OscInitTypeDef RCC_OscInitStruct = {0};
+ 130:Core/Src/main.c ****   RCC_ClkInitTypeDef RCC_ClkInitStruct = {0};
+ 131:Core/Src/main.c **** 
+ 132:Core/Src/main.c ****   /** Configure the main internal regulator output voltage
+ 133:Core/Src/main.c ****   */
+ 134:Core/Src/main.c ****   __HAL_RCC_PWR_CLK_ENABLE();
+ 135:Core/Src/main.c ****   __HAL_PWR_VOLTAGESCALING_CONFIG(PWR_REGULATOR_VOLTAGE_SCALE1);
+ 136:Core/Src/main.c **** 
+ 137:Core/Src/main.c ****   /** Initializes the RCC Oscillators according to the specified parameters
+ 138:Core/Src/main.c ****   * in the RCC_OscInitTypeDef structure.
+ 139:Core/Src/main.c ****   */
+ 140:Core/Src/main.c ****   RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSE;
+ 141:Core/Src/main.c ****   RCC_OscInitStruct.HSEState = RCC_HSE_BYPASS;
+ 142:Core/Src/main.c ****   RCC_OscInitStruct.PLL.PLLState = RCC_PLL_ON;
+ 143:Core/Src/main.c ****   RCC_OscInitStruct.PLL.PLLSource = RCC_PLLSOURCE_HSE;
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccEuWvkD.s 			page 4
 
 
- 144:Core/Src/main.c ****   RCC_OscInitStruct.PLL.PLLP = RCC_PLLP_DIV2;
- 145:Core/Src/main.c ****   RCC_OscInitStruct.PLL.PLLQ = 4;
- 146:Core/Src/main.c ****   if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK)
- 147:Core/Src/main.c ****   {
- 148:Core/Src/main.c ****     Error_Handler();
- 149:Core/Src/main.c ****   }
- 150:Core/Src/main.c **** 
- 151:Core/Src/main.c ****   /** Activate the Over-Drive mode
- 152:Core/Src/main.c ****   */
- 153:Core/Src/main.c ****   if (HAL_PWREx_EnableOverDrive() != HAL_OK)
- 154:Core/Src/main.c ****   {
- 155:Core/Src/main.c ****     Error_Handler();
- 156:Core/Src/main.c ****   }
- 157:Core/Src/main.c **** 
- 158:Core/Src/main.c ****   /** Initializes the CPU, AHB and APB buses clocks
- 159:Core/Src/main.c ****   */
- 160:Core/Src/main.c ****   RCC_ClkInitStruct.ClockType = RCC_CLOCKTYPE_HCLK|RCC_CLOCKTYPE_SYSCLK
- 161:Core/Src/main.c ****                               |RCC_CLOCKTYPE_PCLK1|RCC_CLOCKTYPE_PCLK2;
- 162:Core/Src/main.c ****   RCC_ClkInitStruct.SYSCLKSource = RCC_SYSCLKSOURCE_PLLCLK;
- 163:Core/Src/main.c ****   RCC_ClkInitStruct.AHBCLKDivider = RCC_SYSCLK_DIV1;
- 164:Core/Src/main.c ****   RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV4;
- 165:Core/Src/main.c ****   RCC_ClkInitStruct.APB2CLKDivider = RCC_HCLK_DIV2;
- 166:Core/Src/main.c **** 
- 167:Core/Src/main.c ****   if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_5) != HAL_OK)
- 168:Core/Src/main.c ****   {
- 169:Core/Src/main.c ****     Error_Handler();
- 170:Core/Src/main.c ****   }
- 171:Core/Src/main.c **** }
- 172:Core/Src/main.c **** 
- 173:Core/Src/main.c **** /* USER CODE BEGIN 4 */
+ 144:Core/Src/main.c ****   RCC_OscInitStruct.PLL.PLLM = 15;
+ 145:Core/Src/main.c ****   RCC_OscInitStruct.PLL.PLLN = 216;
+ 146:Core/Src/main.c ****   RCC_OscInitStruct.PLL.PLLP = RCC_PLLP_DIV2;
+ 147:Core/Src/main.c ****   RCC_OscInitStruct.PLL.PLLQ = 4;
+ 148:Core/Src/main.c ****   if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK)
+ 149:Core/Src/main.c ****   {
+ 150:Core/Src/main.c ****     Error_Handler();
+ 151:Core/Src/main.c ****   }
+ 152:Core/Src/main.c **** 
+ 153:Core/Src/main.c ****   /** Activate the Over-Drive mode
+ 154:Core/Src/main.c ****   */
+ 155:Core/Src/main.c ****   if (HAL_PWREx_EnableOverDrive() != HAL_OK)
+ 156:Core/Src/main.c ****   {
+ 157:Core/Src/main.c ****     Error_Handler();
+ 158:Core/Src/main.c ****   }
+ 159:Core/Src/main.c **** 
+ 160:Core/Src/main.c ****   /** Initializes the CPU, AHB and APB buses clocks
+ 161:Core/Src/main.c ****   */
+ 162:Core/Src/main.c ****   RCC_ClkInitStruct.ClockType = RCC_CLOCKTYPE_HCLK|RCC_CLOCKTYPE_SYSCLK
+ 163:Core/Src/main.c ****                               |RCC_CLOCKTYPE_PCLK1|RCC_CLOCKTYPE_PCLK2;
+ 164:Core/Src/main.c ****   RCC_ClkInitStruct.SYSCLKSource = RCC_SYSCLKSOURCE_PLLCLK;
+ 165:Core/Src/main.c ****   RCC_ClkInitStruct.AHBCLKDivider = RCC_SYSCLK_DIV1;
+ 166:Core/Src/main.c ****   RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV4;
+ 167:Core/Src/main.c ****   RCC_ClkInitStruct.APB2CLKDivider = RCC_HCLK_DIV2;
+ 168:Core/Src/main.c **** 
+ 169:Core/Src/main.c ****   if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_5) != HAL_OK)
+ 170:Core/Src/main.c ****   {
+ 171:Core/Src/main.c ****     Error_Handler();
+ 172:Core/Src/main.c ****   }
+ 173:Core/Src/main.c **** }
  174:Core/Src/main.c **** 
- 175:Core/Src/main.c **** /* USER CODE END 4 */
+ 175:Core/Src/main.c **** /* USER CODE BEGIN 4 */
  176:Core/Src/main.c **** 
- 177:Core/Src/main.c **** /**
- 178:Core/Src/main.c ****   * @brief  Period elapsed callback in non blocking mode
- 179:Core/Src/main.c ****   * @note   This function is called  when TIM4 interrupt took place, inside
- 180:Core/Src/main.c ****   * HAL_TIM_IRQHandler(). It makes a direct call to HAL_IncTick() to increment
- 181:Core/Src/main.c ****   * a global variable "uwTick" used as application time base.
- 182:Core/Src/main.c ****   * @param  htim : TIM handle
- 183:Core/Src/main.c ****   * @retval None
- 184:Core/Src/main.c ****   */
- 185:Core/Src/main.c **** void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
- 186:Core/Src/main.c **** {
-  30              		.loc 1 186 1 view -0
+ 177:Core/Src/main.c **** /* USER CODE END 4 */
+ 178:Core/Src/main.c **** 
+ 179:Core/Src/main.c **** /**
+ 180:Core/Src/main.c ****   * @brief  Period elapsed callback in non blocking mode
+ 181:Core/Src/main.c ****   * @note   This function is called  when TIM4 interrupt took place, inside
+ 182:Core/Src/main.c ****   * HAL_TIM_IRQHandler(). It makes a direct call to HAL_IncTick() to increment
+ 183:Core/Src/main.c ****   * a global variable "uwTick" used as application time base.
+ 184:Core/Src/main.c ****   * @param  htim : TIM handle
+ 185:Core/Src/main.c ****   * @retval None
+ 186:Core/Src/main.c ****   */
+ 187:Core/Src/main.c **** void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
+ 188:Core/Src/main.c **** {
+  30              		.loc 1 188 1 view -0
   31              		.cfi_startproc
   32              		@ args = 0, pretend = 0, frame = 0
   33              		@ frame_needed = 0, uses_anonymous_args = 0
-  34              		.loc 1 186 1 is_stmt 0 view .LVU1
+  34              		.loc 1 188 1 is_stmt 0 view .LVU1
   35 0000 08B5     		push	{r3, lr}
   36              	.LCFI0:
   37              		.cfi_def_cfa_offset 8
   38              		.cfi_offset 3, -8
   39              		.cfi_offset 14, -4
- 187:Core/Src/main.c ****   /* USER CODE BEGIN Callback 0 */
- 188:Core/Src/main.c **** 
- 189:Core/Src/main.c ****   /* USER CODE END Callback 0 */
- 190:Core/Src/main.c ****   if (htim->Instance == TIM4) {
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccTImMlp.s 			page 5
+ 189:Core/Src/main.c ****   /* USER CODE BEGIN Callback 0 */
+ 190:Core/Src/main.c **** 
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccEuWvkD.s 			page 5
 
 
-  40              		.loc 1 190 3 is_stmt 1 view .LVU2
-  41              		.loc 1 190 11 is_stmt 0 view .LVU3
+ 191:Core/Src/main.c ****   /* USER CODE END Callback 0 */
+ 192:Core/Src/main.c ****   if (htim->Instance == TIM4) {
+  40              		.loc 1 192 3 is_stmt 1 view .LVU2
+  41              		.loc 1 192 11 is_stmt 0 view .LVU3
   42 0002 0268     		ldr	r2, [r0]
-  43              		.loc 1 190 6 view .LVU4
+  43              		.loc 1 192 6 view .LVU4
   44 0004 034B     		ldr	r3, .L5
   45 0006 9A42     		cmp	r2, r3
   46 0008 00D0     		beq	.L4
   47              	.LVL1:
   48              	.L1:
- 191:Core/Src/main.c ****     HAL_IncTick();
- 192:Core/Src/main.c ****   }
- 193:Core/Src/main.c ****   /* USER CODE BEGIN Callback 1 */
- 194:Core/Src/main.c **** 
- 195:Core/Src/main.c ****   /* USER CODE END Callback 1 */
- 196:Core/Src/main.c **** }
-  49              		.loc 1 196 1 view .LVU5
+ 193:Core/Src/main.c ****     HAL_IncTick();
+ 194:Core/Src/main.c ****   }
+ 195:Core/Src/main.c ****   /* USER CODE BEGIN Callback 1 */
+ 196:Core/Src/main.c **** 
+ 197:Core/Src/main.c ****   /* USER CODE END Callback 1 */
+ 198:Core/Src/main.c **** }
+  49              		.loc 1 198 1 view .LVU5
   50 000a 08BD     		pop	{r3, pc}
   51              	.LVL2:
   52              	.L4:
- 191:Core/Src/main.c ****     HAL_IncTick();
-  53              		.loc 1 191 5 is_stmt 1 view .LVU6
+ 193:Core/Src/main.c ****     HAL_IncTick();
+  53              		.loc 1 193 5 is_stmt 1 view .LVU6
   54 000c FFF7FEFF 		bl	HAL_IncTick
   55              	.LVL3:
-  56              		.loc 1 196 1 is_stmt 0 view .LVU7
+  56              		.loc 1 198 1 is_stmt 0 view .LVU7
   57 0010 FBE7     		b	.L1
   58              	.L6:
   59 0012 00BF     		.align	2
@@ -280,27 +282,27 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccTImMlp.s 			page 1
   70              		.thumb_func
   72              	Error_Handler:
   73              	.LFB141:
- 197:Core/Src/main.c **** 
- 198:Core/Src/main.c **** /**
- 199:Core/Src/main.c ****   * @brief  This function is executed in case of error occurrence.
- 200:Core/Src/main.c ****   * @retval None
- 201:Core/Src/main.c ****   */
- 202:Core/Src/main.c **** void Error_Handler(void)
- 203:Core/Src/main.c **** {
-  74              		.loc 1 203 1 is_stmt 1 view -0
+ 199:Core/Src/main.c **** 
+ 200:Core/Src/main.c **** /**
+ 201:Core/Src/main.c ****   * @brief  This function is executed in case of error occurrence.
+ 202:Core/Src/main.c ****   * @retval None
+ 203:Core/Src/main.c ****   */
+ 204:Core/Src/main.c **** void Error_Handler(void)
+ 205:Core/Src/main.c **** {
+  74              		.loc 1 205 1 is_stmt 1 view -0
   75              		.cfi_startproc
   76              		@ Volatile: function does not return.
   77              		@ args = 0, pretend = 0, frame = 0
   78              		@ frame_needed = 0, uses_anonymous_args = 0
   79              		@ link register save eliminated.
- 204:Core/Src/main.c ****   /* USER CODE BEGIN Error_Handler_Debug */
- 205:Core/Src/main.c ****   /* User can add his own implementation to report the HAL error return state */
- 206:Core/Src/main.c ****   __disable_irq();
-  80              		.loc 1 206 3 view .LVU9
+ 206:Core/Src/main.c ****   /* USER CODE BEGIN Error_Handler_Debug */
+ 207:Core/Src/main.c ****   /* User can add his own implementation to report the HAL error return state */
+ 208:Core/Src/main.c ****   __disable_irq();
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccEuWvkD.s 			page 6
+
+
+  80              		.loc 1 208 3 view .LVU9
   81              	.LBB4:
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccTImMlp.s 			page 6
-
-
   82              	.LBI4:
   83              		.file 2 "Drivers/CMSIS/Include/cmsis_gcc.h"
    1:Drivers/CMSIS/Include/cmsis_gcc.h **** /**************************************************************************//**
@@ -356,11 +358,11 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccTImMlp.s 			page 1
   51:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
   52:Drivers/CMSIS/Include/cmsis_gcc.h **** #ifndef   __NO_RETURN
   53:Drivers/CMSIS/Include/cmsis_gcc.h ****   #define __NO_RETURN                            __attribute__((__noreturn__))
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccEuWvkD.s 			page 7
+
+
   54:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
   55:Drivers/CMSIS/Include/cmsis_gcc.h **** #ifndef   __USED
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccTImMlp.s 			page 7
-
-
   56:Drivers/CMSIS/Include/cmsis_gcc.h ****   #define __USED                                 __attribute__((used))
   57:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
   58:Drivers/CMSIS/Include/cmsis_gcc.h **** #ifndef   __WEAK
@@ -416,11 +418,11 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccTImMlp.s 			page 1
  108:Drivers/CMSIS/Include/cmsis_gcc.h ****   #define __UNALIGNED_UINT32_READ(addr)          (((const struct T_UINT32_READ *)(const void *)(add
  109:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
  110:Drivers/CMSIS/Include/cmsis_gcc.h **** #ifndef   __ALIGNED
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccEuWvkD.s 			page 8
+
+
  111:Drivers/CMSIS/Include/cmsis_gcc.h ****   #define __ALIGNED(x)                           __attribute__((aligned(x)))
  112:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccTImMlp.s 			page 8
-
-
  113:Drivers/CMSIS/Include/cmsis_gcc.h **** #ifndef   __RESTRICT
  114:Drivers/CMSIS/Include/cmsis_gcc.h ****   #define __RESTRICT                             __restrict
  115:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
@@ -476,11 +478,11 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccTImMlp.s 			page 1
  165:Drivers/CMSIS/Include/cmsis_gcc.h **** 
  166:Drivers/CMSIS/Include/cmsis_gcc.h **** #define __PROGRAM_START           __cmsis_start
  167:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccEuWvkD.s 			page 9
+
+
  168:Drivers/CMSIS/Include/cmsis_gcc.h **** 
  169:Drivers/CMSIS/Include/cmsis_gcc.h **** #ifndef __INITIAL_SP
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccTImMlp.s 			page 9
-
-
  170:Drivers/CMSIS/Include/cmsis_gcc.h **** #define __INITIAL_SP              __StackTop
  171:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
  172:Drivers/CMSIS/Include/cmsis_gcc.h **** 
@@ -536,11 +538,11 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccTImMlp.s 			page 1
  222:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
  223:Drivers/CMSIS/Include/cmsis_gcc.h **** 
  224:Drivers/CMSIS/Include/cmsis_gcc.h **** /**
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccEuWvkD.s 			page 10
+
+
  225:Drivers/CMSIS/Include/cmsis_gcc.h ****   \brief   No Operation
  226:Drivers/CMSIS/Include/cmsis_gcc.h ****   \details No Operation does nothing. This instruction can be used for code alignment purposes.
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccTImMlp.s 			page 10
-
-
  227:Drivers/CMSIS/Include/cmsis_gcc.h ****  */
  228:Drivers/CMSIS/Include/cmsis_gcc.h **** #define __NOP()                             __ASM volatile ("nop")
  229:Drivers/CMSIS/Include/cmsis_gcc.h **** 
@@ -596,11 +598,11 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccTImMlp.s 			page 1
  279:Drivers/CMSIS/Include/cmsis_gcc.h ****  */
  280:Drivers/CMSIS/Include/cmsis_gcc.h **** __STATIC_FORCEINLINE void __DMB(void)
  281:Drivers/CMSIS/Include/cmsis_gcc.h **** {
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccEuWvkD.s 			page 11
+
+
  282:Drivers/CMSIS/Include/cmsis_gcc.h ****   __ASM volatile ("dmb 0xF":::"memory");
  283:Drivers/CMSIS/Include/cmsis_gcc.h **** }
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccTImMlp.s 			page 11
-
-
  284:Drivers/CMSIS/Include/cmsis_gcc.h **** 
  285:Drivers/CMSIS/Include/cmsis_gcc.h **** 
  286:Drivers/CMSIS/Include/cmsis_gcc.h **** /**
@@ -656,11 +658,11 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccTImMlp.s 			page 1
  336:Drivers/CMSIS/Include/cmsis_gcc.h **** }
  337:Drivers/CMSIS/Include/cmsis_gcc.h **** 
  338:Drivers/CMSIS/Include/cmsis_gcc.h **** 
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccEuWvkD.s 			page 12
+
+
  339:Drivers/CMSIS/Include/cmsis_gcc.h **** /**
  340:Drivers/CMSIS/Include/cmsis_gcc.h ****   \brief   Rotate Right in unsigned value (32 bit)
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccTImMlp.s 			page 12
-
-
  341:Drivers/CMSIS/Include/cmsis_gcc.h ****   \details Rotate Right (immediate) provides the value of the contents of a register rotated by a v
  342:Drivers/CMSIS/Include/cmsis_gcc.h ****   \param [in]    op1  Value to rotate
  343:Drivers/CMSIS/Include/cmsis_gcc.h ****   \param [in]    op2  Number of Bits to rotate
@@ -716,11 +718,11 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccTImMlp.s 			page 1
  393:Drivers/CMSIS/Include/cmsis_gcc.h ****   return result;
  394:Drivers/CMSIS/Include/cmsis_gcc.h **** }
  395:Drivers/CMSIS/Include/cmsis_gcc.h **** 
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccEuWvkD.s 			page 13
+
+
  396:Drivers/CMSIS/Include/cmsis_gcc.h **** 
  397:Drivers/CMSIS/Include/cmsis_gcc.h **** /**
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccTImMlp.s 			page 13
-
-
  398:Drivers/CMSIS/Include/cmsis_gcc.h ****   \brief   Count leading zeros
  399:Drivers/CMSIS/Include/cmsis_gcc.h ****   \details Counts the number of leading zeros of a data value.
  400:Drivers/CMSIS/Include/cmsis_gcc.h ****   \param [in]  value  Value to count the leading zeros
@@ -776,11 +778,11 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccTImMlp.s 			page 1
  450:Drivers/CMSIS/Include/cmsis_gcc.h ****   \details Executes a exclusive LDR instruction for 16 bit values.
  451:Drivers/CMSIS/Include/cmsis_gcc.h ****   \param [in]    ptr  Pointer to data
  452:Drivers/CMSIS/Include/cmsis_gcc.h ****   \return        value of type uint16_t at (*ptr)
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccEuWvkD.s 			page 14
+
+
  453:Drivers/CMSIS/Include/cmsis_gcc.h ****  */
  454:Drivers/CMSIS/Include/cmsis_gcc.h **** __STATIC_FORCEINLINE uint16_t __LDREXH(volatile uint16_t *addr)
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccTImMlp.s 			page 14
-
-
  455:Drivers/CMSIS/Include/cmsis_gcc.h **** {
  456:Drivers/CMSIS/Include/cmsis_gcc.h ****     uint32_t result;
  457:Drivers/CMSIS/Include/cmsis_gcc.h **** 
@@ -836,11 +838,11 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccTImMlp.s 			page 1
  507:Drivers/CMSIS/Include/cmsis_gcc.h ****   \return          0  Function succeeded
  508:Drivers/CMSIS/Include/cmsis_gcc.h ****   \return          1  Function failed
  509:Drivers/CMSIS/Include/cmsis_gcc.h ****  */
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccEuWvkD.s 			page 15
+
+
  510:Drivers/CMSIS/Include/cmsis_gcc.h **** __STATIC_FORCEINLINE uint32_t __STREXH(uint16_t value, volatile uint16_t *addr)
  511:Drivers/CMSIS/Include/cmsis_gcc.h **** {
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccTImMlp.s 			page 15
-
-
  512:Drivers/CMSIS/Include/cmsis_gcc.h ****    uint32_t result;
  513:Drivers/CMSIS/Include/cmsis_gcc.h **** 
  514:Drivers/CMSIS/Include/cmsis_gcc.h ****    __ASM volatile ("strexh %0, %2, %1" : "=&r" (result), "=Q" (*addr) : "r" ((uint32_t)value) );
@@ -896,11 +898,11 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccTImMlp.s 			page 1
  564:Drivers/CMSIS/Include/cmsis_gcc.h ****   int32_t __RES, __ARG1 = (ARG1); \
  565:Drivers/CMSIS/Include/cmsis_gcc.h ****   __ASM volatile ("ssat %0, %1, %2" : "=r" (__RES) :  "I" (ARG2), "r" (__ARG1) : "cc" ); \
  566:Drivers/CMSIS/Include/cmsis_gcc.h ****   __RES; \
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccEuWvkD.s 			page 16
+
+
  567:Drivers/CMSIS/Include/cmsis_gcc.h ****  })
  568:Drivers/CMSIS/Include/cmsis_gcc.h **** 
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccTImMlp.s 			page 16
-
-
  569:Drivers/CMSIS/Include/cmsis_gcc.h **** 
  570:Drivers/CMSIS/Include/cmsis_gcc.h **** /**
  571:Drivers/CMSIS/Include/cmsis_gcc.h ****   \brief   Unsigned Saturate
@@ -956,11 +958,11 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccTImMlp.s 			page 1
  621:Drivers/CMSIS/Include/cmsis_gcc.h **** }
  622:Drivers/CMSIS/Include/cmsis_gcc.h **** 
  623:Drivers/CMSIS/Include/cmsis_gcc.h **** 
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccEuWvkD.s 			page 17
+
+
  624:Drivers/CMSIS/Include/cmsis_gcc.h **** /**
  625:Drivers/CMSIS/Include/cmsis_gcc.h ****   \brief   LDRT Unprivileged (16 bit)
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccTImMlp.s 			page 17
-
-
  626:Drivers/CMSIS/Include/cmsis_gcc.h ****   \details Executes a Unprivileged LDRT instruction for 16 bit values.
  627:Drivers/CMSIS/Include/cmsis_gcc.h ****   \param [in]    ptr  Pointer to data
  628:Drivers/CMSIS/Include/cmsis_gcc.h ****   \return        value of type uint16_t at (*ptr)
@@ -1016,11 +1018,11 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccTImMlp.s 			page 1
  678:Drivers/CMSIS/Include/cmsis_gcc.h ****  */
  679:Drivers/CMSIS/Include/cmsis_gcc.h **** __STATIC_FORCEINLINE void __STRHT(uint16_t value, volatile uint16_t *ptr)
  680:Drivers/CMSIS/Include/cmsis_gcc.h **** {
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccEuWvkD.s 			page 18
+
+
  681:Drivers/CMSIS/Include/cmsis_gcc.h ****    __ASM volatile ("strht %1, %0" : "=Q" (*ptr) : "r" ((uint32_t)value) );
  682:Drivers/CMSIS/Include/cmsis_gcc.h **** }
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccTImMlp.s 			page 18
-
-
  683:Drivers/CMSIS/Include/cmsis_gcc.h **** 
  684:Drivers/CMSIS/Include/cmsis_gcc.h **** 
  685:Drivers/CMSIS/Include/cmsis_gcc.h **** /**
@@ -1076,11 +1078,11 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccTImMlp.s 			page 1
  735:Drivers/CMSIS/Include/cmsis_gcc.h ****   {
  736:Drivers/CMSIS/Include/cmsis_gcc.h ****     const uint32_t max = ((1U << sat) - 1U);
  737:Drivers/CMSIS/Include/cmsis_gcc.h ****     if (val > (int32_t)max)
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccEuWvkD.s 			page 19
+
+
  738:Drivers/CMSIS/Include/cmsis_gcc.h ****     {
  739:Drivers/CMSIS/Include/cmsis_gcc.h ****       return max;
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccTImMlp.s 			page 19
-
-
  740:Drivers/CMSIS/Include/cmsis_gcc.h ****     }
  741:Drivers/CMSIS/Include/cmsis_gcc.h ****     else if (val < 0)
  742:Drivers/CMSIS/Include/cmsis_gcc.h ****     {
@@ -1136,11 +1138,11 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccTImMlp.s 			page 1
  792:Drivers/CMSIS/Include/cmsis_gcc.h **** __STATIC_FORCEINLINE uint32_t __LDA(volatile uint32_t *ptr)
  793:Drivers/CMSIS/Include/cmsis_gcc.h **** {
  794:Drivers/CMSIS/Include/cmsis_gcc.h ****     uint32_t result;
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccEuWvkD.s 			page 20
+
+
  795:Drivers/CMSIS/Include/cmsis_gcc.h **** 
  796:Drivers/CMSIS/Include/cmsis_gcc.h ****    __ASM volatile ("lda %0, %1" : "=r" (result) : "Q" (*ptr) : "memory" );
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccTImMlp.s 			page 20
-
-
  797:Drivers/CMSIS/Include/cmsis_gcc.h ****    return(result);
  798:Drivers/CMSIS/Include/cmsis_gcc.h **** }
  799:Drivers/CMSIS/Include/cmsis_gcc.h **** 
@@ -1196,11 +1198,11 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccTImMlp.s 			page 1
  849:Drivers/CMSIS/Include/cmsis_gcc.h **** }
  850:Drivers/CMSIS/Include/cmsis_gcc.h **** 
  851:Drivers/CMSIS/Include/cmsis_gcc.h **** 
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccEuWvkD.s 			page 21
+
+
  852:Drivers/CMSIS/Include/cmsis_gcc.h **** /**
  853:Drivers/CMSIS/Include/cmsis_gcc.h ****   \brief   Load-Acquire Exclusive (16 bit)
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccTImMlp.s 			page 21
-
-
  854:Drivers/CMSIS/Include/cmsis_gcc.h ****   \details Executes a LDAH exclusive instruction for 16 bit values.
  855:Drivers/CMSIS/Include/cmsis_gcc.h ****   \param [in]    ptr  Pointer to data
  856:Drivers/CMSIS/Include/cmsis_gcc.h ****   \return        value of type uint16_t at (*ptr)
@@ -1256,11 +1258,11 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccTImMlp.s 			page 1
  906:Drivers/CMSIS/Include/cmsis_gcc.h ****  */
  907:Drivers/CMSIS/Include/cmsis_gcc.h **** __STATIC_FORCEINLINE uint32_t __STLEXH(uint16_t value, volatile uint16_t *ptr)
  908:Drivers/CMSIS/Include/cmsis_gcc.h **** {
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccEuWvkD.s 			page 22
+
+
  909:Drivers/CMSIS/Include/cmsis_gcc.h ****    uint32_t result;
  910:Drivers/CMSIS/Include/cmsis_gcc.h **** 
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccTImMlp.s 			page 22
-
-
  911:Drivers/CMSIS/Include/cmsis_gcc.h ****    __ASM volatile ("stlexh %0, %2, %1" : "=&r" (result), "=Q" (*ptr) : "r" ((uint32_t)value) : "mem
  912:Drivers/CMSIS/Include/cmsis_gcc.h ****    return(result);
  913:Drivers/CMSIS/Include/cmsis_gcc.h **** }
@@ -1316,11 +1318,11 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccTImMlp.s 			page 1
  961:Drivers/CMSIS/Include/cmsis_gcc.h **** {
  962:Drivers/CMSIS/Include/cmsis_gcc.h ****   __ASM volatile ("cpsid i" : : : "memory");
   86              		.loc 2 962 3 view .LVU11
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccEuWvkD.s 			page 23
+
+
   87              		.syntax unified
   88              	@ 962 "Drivers/CMSIS/Include/cmsis_gcc.h" 1
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccTImMlp.s 			page 23
-
-
   89 0000 72B6     		cpsid i
   90              	@ 0 "" 2
   91              		.thumb
@@ -1328,13 +1330,13 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccTImMlp.s 			page 1
   93              	.L8:
   94              	.LBE5:
   95              	.LBE4:
- 207:Core/Src/main.c ****   while (1)
-  96              		.loc 1 207 3 discriminator 1 view .LVU12
- 208:Core/Src/main.c ****   {
- 209:Core/Src/main.c ****   }
-  97              		.loc 1 209 3 discriminator 1 view .LVU13
- 207:Core/Src/main.c ****   while (1)
-  98              		.loc 1 207 9 discriminator 1 view .LVU14
+ 209:Core/Src/main.c ****   while (1)
+  96              		.loc 1 209 3 discriminator 1 view .LVU12
+ 210:Core/Src/main.c ****   {
+ 211:Core/Src/main.c ****   }
+  97              		.loc 1 211 3 discriminator 1 view .LVU13
+ 209:Core/Src/main.c ****   while (1)
+  98              		.loc 1 209 9 discriminator 1 view .LVU14
   99 0002 FEE7     		b	.L8
  100              		.cfi_endproc
  101              	.LFE141:
@@ -1346,8 +1348,8 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccTImMlp.s 			page 1
  108              		.thumb_func
  110              	SystemClock_Config:
  111              	.LFB139:
- 126:Core/Src/main.c ****   RCC_OscInitTypeDef RCC_OscInitStruct = {0};
- 112              		.loc 1 126 1 view -0
+ 128:Core/Src/main.c ****   RCC_OscInitTypeDef RCC_OscInitStruct = {0};
+ 112              		.loc 1 128 1 view -0
  113              		.cfi_startproc
  114              		@ args = 0, pretend = 0, frame = 80
  115              		@ frame_needed = 0, uses_anonymous_args = 0
@@ -1358,189 +1360,189 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccTImMlp.s 			page 1
  120 0002 95B0     		sub	sp, sp, #84
  121              	.LCFI2:
  122              		.cfi_def_cfa_offset 88
- 127:Core/Src/main.c ****   RCC_ClkInitTypeDef RCC_ClkInitStruct = {0};
- 123              		.loc 1 127 3 view .LVU16
- 127:Core/Src/main.c ****   RCC_ClkInitTypeDef RCC_ClkInitStruct = {0};
- 124              		.loc 1 127 22 is_stmt 0 view .LVU17
+ 129:Core/Src/main.c ****   RCC_ClkInitTypeDef RCC_ClkInitStruct = {0};
+ 123              		.loc 1 129 3 view .LVU16
+ 129:Core/Src/main.c ****   RCC_ClkInitTypeDef RCC_ClkInitStruct = {0};
+ 124              		.loc 1 129 22 is_stmt 0 view .LVU17
  125 0004 3022     		movs	r2, #48
  126 0006 0021     		movs	r1, #0
  127 0008 08A8     		add	r0, sp, #32
  128 000a FFF7FEFF 		bl	memset
  129              	.LVL4:
- 128:Core/Src/main.c **** 
- 130              		.loc 1 128 3 is_stmt 1 view .LVU18
- 128:Core/Src/main.c **** 
- 131              		.loc 1 128 22 is_stmt 0 view .LVU19
+ 130:Core/Src/main.c **** 
+ 130              		.loc 1 130 3 is_stmt 1 view .LVU18
+ 130:Core/Src/main.c **** 
+ 131              		.loc 1 130 22 is_stmt 0 view .LVU19
  132 000e 0023     		movs	r3, #0
  133 0010 0393     		str	r3, [sp, #12]
  134 0012 0493     		str	r3, [sp, #16]
  135 0014 0593     		str	r3, [sp, #20]
  136 0016 0693     		str	r3, [sp, #24]
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccEuWvkD.s 			page 24
+
+
  137 0018 0793     		str	r3, [sp, #28]
- 132:Core/Src/main.c ****   __HAL_PWR_VOLTAGESCALING_CONFIG(PWR_REGULATOR_VOLTAGE_SCALE1);
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccTImMlp.s 			page 24
-
-
- 138              		.loc 1 132 3 is_stmt 1 view .LVU20
+ 134:Core/Src/main.c ****   __HAL_PWR_VOLTAGESCALING_CONFIG(PWR_REGULATOR_VOLTAGE_SCALE1);
+ 138              		.loc 1 134 3 is_stmt 1 view .LVU20
  139              	.LBB6:
- 132:Core/Src/main.c ****   __HAL_PWR_VOLTAGESCALING_CONFIG(PWR_REGULATOR_VOLTAGE_SCALE1);
- 140              		.loc 1 132 3 view .LVU21
+ 134:Core/Src/main.c ****   __HAL_PWR_VOLTAGESCALING_CONFIG(PWR_REGULATOR_VOLTAGE_SCALE1);
+ 140              		.loc 1 134 3 view .LVU21
  141 001a 0193     		str	r3, [sp, #4]
- 132:Core/Src/main.c ****   __HAL_PWR_VOLTAGESCALING_CONFIG(PWR_REGULATOR_VOLTAGE_SCALE1);
- 142              		.loc 1 132 3 view .LVU22
+ 134:Core/Src/main.c ****   __HAL_PWR_VOLTAGESCALING_CONFIG(PWR_REGULATOR_VOLTAGE_SCALE1);
+ 142              		.loc 1 134 3 view .LVU22
  143 001c 234A     		ldr	r2, .L17
  144 001e 116C     		ldr	r1, [r2, #64]
  145 0020 41F08051 		orr	r1, r1, #268435456
  146 0024 1164     		str	r1, [r2, #64]
- 132:Core/Src/main.c ****   __HAL_PWR_VOLTAGESCALING_CONFIG(PWR_REGULATOR_VOLTAGE_SCALE1);
- 147              		.loc 1 132 3 view .LVU23
+ 134:Core/Src/main.c ****   __HAL_PWR_VOLTAGESCALING_CONFIG(PWR_REGULATOR_VOLTAGE_SCALE1);
+ 147              		.loc 1 134 3 view .LVU23
  148 0026 126C     		ldr	r2, [r2, #64]
  149 0028 02F08052 		and	r2, r2, #268435456
  150 002c 0192     		str	r2, [sp, #4]
- 132:Core/Src/main.c ****   __HAL_PWR_VOLTAGESCALING_CONFIG(PWR_REGULATOR_VOLTAGE_SCALE1);
- 151              		.loc 1 132 3 view .LVU24
+ 134:Core/Src/main.c ****   __HAL_PWR_VOLTAGESCALING_CONFIG(PWR_REGULATOR_VOLTAGE_SCALE1);
+ 151              		.loc 1 134 3 view .LVU24
  152 002e 019A     		ldr	r2, [sp, #4]
  153              	.LBE6:
- 132:Core/Src/main.c ****   __HAL_PWR_VOLTAGESCALING_CONFIG(PWR_REGULATOR_VOLTAGE_SCALE1);
- 154              		.loc 1 132 3 view .LVU25
- 133:Core/Src/main.c **** 
- 155              		.loc 1 133 3 view .LVU26
+ 134:Core/Src/main.c ****   __HAL_PWR_VOLTAGESCALING_CONFIG(PWR_REGULATOR_VOLTAGE_SCALE1);
+ 154              		.loc 1 134 3 view .LVU25
+ 135:Core/Src/main.c **** 
+ 155              		.loc 1 135 3 view .LVU26
  156              	.LBB7:
- 133:Core/Src/main.c **** 
- 157              		.loc 1 133 3 view .LVU27
+ 135:Core/Src/main.c **** 
+ 157              		.loc 1 135 3 view .LVU27
  158 0030 0293     		str	r3, [sp, #8]
- 133:Core/Src/main.c **** 
- 159              		.loc 1 133 3 view .LVU28
+ 135:Core/Src/main.c **** 
+ 159              		.loc 1 135 3 view .LVU28
  160 0032 1F4B     		ldr	r3, .L17+4
  161 0034 1A68     		ldr	r2, [r3]
  162 0036 42F44042 		orr	r2, r2, #49152
  163 003a 1A60     		str	r2, [r3]
- 133:Core/Src/main.c **** 
- 164              		.loc 1 133 3 view .LVU29
+ 135:Core/Src/main.c **** 
+ 164              		.loc 1 135 3 view .LVU29
  165 003c 1B68     		ldr	r3, [r3]
  166 003e 03F44043 		and	r3, r3, #49152
  167 0042 0293     		str	r3, [sp, #8]
- 133:Core/Src/main.c **** 
- 168              		.loc 1 133 3 view .LVU30
+ 135:Core/Src/main.c **** 
+ 168              		.loc 1 135 3 view .LVU30
  169 0044 029B     		ldr	r3, [sp, #8]
  170              	.LBE7:
- 133:Core/Src/main.c **** 
- 171              		.loc 1 133 3 view .LVU31
- 138:Core/Src/main.c ****   RCC_OscInitStruct.HSEState = RCC_HSE_BYPASS;
- 172              		.loc 1 138 3 view .LVU32
- 138:Core/Src/main.c ****   RCC_OscInitStruct.HSEState = RCC_HSE_BYPASS;
- 173              		.loc 1 138 36 is_stmt 0 view .LVU33
+ 135:Core/Src/main.c **** 
+ 171              		.loc 1 135 3 view .LVU31
+ 140:Core/Src/main.c ****   RCC_OscInitStruct.HSEState = RCC_HSE_BYPASS;
+ 172              		.loc 1 140 3 view .LVU32
+ 140:Core/Src/main.c ****   RCC_OscInitStruct.HSEState = RCC_HSE_BYPASS;
+ 173              		.loc 1 140 36 is_stmt 0 view .LVU33
  174 0046 0123     		movs	r3, #1
  175 0048 0893     		str	r3, [sp, #32]
- 139:Core/Src/main.c ****   RCC_OscInitStruct.PLL.PLLState = RCC_PLL_ON;
- 176              		.loc 1 139 3 is_stmt 1 view .LVU34
- 139:Core/Src/main.c ****   RCC_OscInitStruct.PLL.PLLState = RCC_PLL_ON;
- 177              		.loc 1 139 30 is_stmt 0 view .LVU35
+ 141:Core/Src/main.c ****   RCC_OscInitStruct.PLL.PLLState = RCC_PLL_ON;
+ 176              		.loc 1 141 3 is_stmt 1 view .LVU34
+ 141:Core/Src/main.c ****   RCC_OscInitStruct.PLL.PLLState = RCC_PLL_ON;
+ 177              		.loc 1 141 30 is_stmt 0 view .LVU35
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccEuWvkD.s 			page 25
+
+
  178 004a 4FF4A023 		mov	r3, #327680
  179 004e 0993     		str	r3, [sp, #36]
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccTImMlp.s 			page 25
-
-
- 140:Core/Src/main.c ****   RCC_OscInitStruct.PLL.PLLSource = RCC_PLLSOURCE_HSE;
- 180              		.loc 1 140 3 is_stmt 1 view .LVU36
- 140:Core/Src/main.c ****   RCC_OscInitStruct.PLL.PLLSource = RCC_PLLSOURCE_HSE;
- 181              		.loc 1 140 34 is_stmt 0 view .LVU37
+ 142:Core/Src/main.c ****   RCC_OscInitStruct.PLL.PLLSource = RCC_PLLSOURCE_HSE;
+ 180              		.loc 1 142 3 is_stmt 1 view .LVU36
+ 142:Core/Src/main.c ****   RCC_OscInitStruct.PLL.PLLSource = RCC_PLLSOURCE_HSE;
+ 181              		.loc 1 142 34 is_stmt 0 view .LVU37
  182 0050 0223     		movs	r3, #2
  183 0052 0E93     		str	r3, [sp, #56]
- 141:Core/Src/main.c ****   RCC_OscInitStruct.PLL.PLLM = 15;
- 184              		.loc 1 141 3 is_stmt 1 view .LVU38
- 141:Core/Src/main.c ****   RCC_OscInitStruct.PLL.PLLM = 15;
- 185              		.loc 1 141 35 is_stmt 0 view .LVU39
+ 143:Core/Src/main.c ****   RCC_OscInitStruct.PLL.PLLM = 15;
+ 184              		.loc 1 143 3 is_stmt 1 view .LVU38
+ 143:Core/Src/main.c ****   RCC_OscInitStruct.PLL.PLLM = 15;
+ 185              		.loc 1 143 35 is_stmt 0 view .LVU39
  186 0054 4FF48002 		mov	r2, #4194304
  187 0058 0F92     		str	r2, [sp, #60]
- 142:Core/Src/main.c ****   RCC_OscInitStruct.PLL.PLLN = 216;
- 188              		.loc 1 142 3 is_stmt 1 view .LVU40
- 142:Core/Src/main.c ****   RCC_OscInitStruct.PLL.PLLN = 216;
- 189              		.loc 1 142 30 is_stmt 0 view .LVU41
+ 144:Core/Src/main.c ****   RCC_OscInitStruct.PLL.PLLN = 216;
+ 188              		.loc 1 144 3 is_stmt 1 view .LVU40
+ 144:Core/Src/main.c ****   RCC_OscInitStruct.PLL.PLLN = 216;
+ 189              		.loc 1 144 30 is_stmt 0 view .LVU41
  190 005a 0F22     		movs	r2, #15
  191 005c 1092     		str	r2, [sp, #64]
- 143:Core/Src/main.c ****   RCC_OscInitStruct.PLL.PLLP = RCC_PLLP_DIV2;
- 192              		.loc 1 143 3 is_stmt 1 view .LVU42
- 143:Core/Src/main.c ****   RCC_OscInitStruct.PLL.PLLP = RCC_PLLP_DIV2;
- 193              		.loc 1 143 30 is_stmt 0 view .LVU43
+ 145:Core/Src/main.c ****   RCC_OscInitStruct.PLL.PLLP = RCC_PLLP_DIV2;
+ 192              		.loc 1 145 3 is_stmt 1 view .LVU42
+ 145:Core/Src/main.c ****   RCC_OscInitStruct.PLL.PLLP = RCC_PLLP_DIV2;
+ 193              		.loc 1 145 30 is_stmt 0 view .LVU43
  194 005e D822     		movs	r2, #216
  195 0060 1192     		str	r2, [sp, #68]
- 144:Core/Src/main.c ****   RCC_OscInitStruct.PLL.PLLQ = 4;
- 196              		.loc 1 144 3 is_stmt 1 view .LVU44
- 144:Core/Src/main.c ****   RCC_OscInitStruct.PLL.PLLQ = 4;
- 197              		.loc 1 144 30 is_stmt 0 view .LVU45
+ 146:Core/Src/main.c ****   RCC_OscInitStruct.PLL.PLLQ = 4;
+ 196              		.loc 1 146 3 is_stmt 1 view .LVU44
+ 146:Core/Src/main.c ****   RCC_OscInitStruct.PLL.PLLQ = 4;
+ 197              		.loc 1 146 30 is_stmt 0 view .LVU45
  198 0062 1293     		str	r3, [sp, #72]
- 145:Core/Src/main.c ****   if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK)
- 199              		.loc 1 145 3 is_stmt 1 view .LVU46
- 145:Core/Src/main.c ****   if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK)
- 200              		.loc 1 145 30 is_stmt 0 view .LVU47
+ 147:Core/Src/main.c ****   if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK)
+ 199              		.loc 1 147 3 is_stmt 1 view .LVU46
+ 147:Core/Src/main.c ****   if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK)
+ 200              		.loc 1 147 30 is_stmt 0 view .LVU47
  201 0064 0423     		movs	r3, #4
  202 0066 1393     		str	r3, [sp, #76]
- 146:Core/Src/main.c ****   {
- 203              		.loc 1 146 3 is_stmt 1 view .LVU48
- 146:Core/Src/main.c ****   {
- 204              		.loc 1 146 7 is_stmt 0 view .LVU49
+ 148:Core/Src/main.c ****   {
+ 203              		.loc 1 148 3 is_stmt 1 view .LVU48
+ 148:Core/Src/main.c ****   {
+ 204              		.loc 1 148 7 is_stmt 0 view .LVU49
  205 0068 08A8     		add	r0, sp, #32
  206 006a FFF7FEFF 		bl	HAL_RCC_OscConfig
  207              	.LVL5:
- 146:Core/Src/main.c ****   {
- 208              		.loc 1 146 6 view .LVU50
+ 148:Core/Src/main.c ****   {
+ 208              		.loc 1 148 6 view .LVU50
  209 006e B0B9     		cbnz	r0, .L14
- 153:Core/Src/main.c ****   {
- 210              		.loc 1 153 3 is_stmt 1 view .LVU51
- 153:Core/Src/main.c ****   {
- 211              		.loc 1 153 7 is_stmt 0 view .LVU52
+ 155:Core/Src/main.c ****   {
+ 210              		.loc 1 155 3 is_stmt 1 view .LVU51
+ 155:Core/Src/main.c ****   {
+ 211              		.loc 1 155 7 is_stmt 0 view .LVU52
  212 0070 FFF7FEFF 		bl	HAL_PWREx_EnableOverDrive
  213              	.LVL6:
- 153:Core/Src/main.c ****   {
- 214              		.loc 1 153 6 view .LVU53
+ 155:Core/Src/main.c ****   {
+ 214              		.loc 1 155 6 view .LVU53
  215 0074 A8B9     		cbnz	r0, .L15
- 160:Core/Src/main.c ****                               |RCC_CLOCKTYPE_PCLK1|RCC_CLOCKTYPE_PCLK2;
- 216              		.loc 1 160 3 is_stmt 1 view .LVU54
- 160:Core/Src/main.c ****                               |RCC_CLOCKTYPE_PCLK1|RCC_CLOCKTYPE_PCLK2;
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccTImMlp.s 			page 26
+ 162:Core/Src/main.c ****                               |RCC_CLOCKTYPE_PCLK1|RCC_CLOCKTYPE_PCLK2;
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccEuWvkD.s 			page 26
 
 
- 217              		.loc 1 160 31 is_stmt 0 view .LVU55
+ 216              		.loc 1 162 3 is_stmt 1 view .LVU54
+ 162:Core/Src/main.c ****                               |RCC_CLOCKTYPE_PCLK1|RCC_CLOCKTYPE_PCLK2;
+ 217              		.loc 1 162 31 is_stmt 0 view .LVU55
  218 0076 0F23     		movs	r3, #15
  219 0078 0393     		str	r3, [sp, #12]
- 162:Core/Src/main.c ****   RCC_ClkInitStruct.AHBCLKDivider = RCC_SYSCLK_DIV1;
- 220              		.loc 1 162 3 is_stmt 1 view .LVU56
- 162:Core/Src/main.c ****   RCC_ClkInitStruct.AHBCLKDivider = RCC_SYSCLK_DIV1;
- 221              		.loc 1 162 34 is_stmt 0 view .LVU57
+ 164:Core/Src/main.c ****   RCC_ClkInitStruct.AHBCLKDivider = RCC_SYSCLK_DIV1;
+ 220              		.loc 1 164 3 is_stmt 1 view .LVU56
+ 164:Core/Src/main.c ****   RCC_ClkInitStruct.AHBCLKDivider = RCC_SYSCLK_DIV1;
+ 221              		.loc 1 164 34 is_stmt 0 view .LVU57
  222 007a 0223     		movs	r3, #2
  223 007c 0493     		str	r3, [sp, #16]
- 163:Core/Src/main.c ****   RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV4;
- 224              		.loc 1 163 3 is_stmt 1 view .LVU58
- 163:Core/Src/main.c ****   RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV4;
- 225              		.loc 1 163 35 is_stmt 0 view .LVU59
+ 165:Core/Src/main.c ****   RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV4;
+ 224              		.loc 1 165 3 is_stmt 1 view .LVU58
+ 165:Core/Src/main.c ****   RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV4;
+ 225              		.loc 1 165 35 is_stmt 0 view .LVU59
  226 007e 0023     		movs	r3, #0
  227 0080 0593     		str	r3, [sp, #20]
- 164:Core/Src/main.c ****   RCC_ClkInitStruct.APB2CLKDivider = RCC_HCLK_DIV2;
- 228              		.loc 1 164 3 is_stmt 1 view .LVU60
- 164:Core/Src/main.c ****   RCC_ClkInitStruct.APB2CLKDivider = RCC_HCLK_DIV2;
- 229              		.loc 1 164 36 is_stmt 0 view .LVU61
+ 166:Core/Src/main.c ****   RCC_ClkInitStruct.APB2CLKDivider = RCC_HCLK_DIV2;
+ 228              		.loc 1 166 3 is_stmt 1 view .LVU60
+ 166:Core/Src/main.c ****   RCC_ClkInitStruct.APB2CLKDivider = RCC_HCLK_DIV2;
+ 229              		.loc 1 166 36 is_stmt 0 view .LVU61
  230 0082 4FF4A053 		mov	r3, #5120
  231 0086 0693     		str	r3, [sp, #24]
- 165:Core/Src/main.c **** 
- 232              		.loc 1 165 3 is_stmt 1 view .LVU62
- 165:Core/Src/main.c **** 
- 233              		.loc 1 165 36 is_stmt 0 view .LVU63
+ 167:Core/Src/main.c **** 
+ 232              		.loc 1 167 3 is_stmt 1 view .LVU62
+ 167:Core/Src/main.c **** 
+ 233              		.loc 1 167 36 is_stmt 0 view .LVU63
  234 0088 4FF48053 		mov	r3, #4096
  235 008c 0793     		str	r3, [sp, #28]
- 167:Core/Src/main.c ****   {
- 236              		.loc 1 167 3 is_stmt 1 view .LVU64
- 167:Core/Src/main.c ****   {
- 237              		.loc 1 167 7 is_stmt 0 view .LVU65
+ 169:Core/Src/main.c ****   {
+ 236              		.loc 1 169 3 is_stmt 1 view .LVU64
+ 169:Core/Src/main.c ****   {
+ 237              		.loc 1 169 7 is_stmt 0 view .LVU65
  238 008e 0521     		movs	r1, #5
  239 0090 03A8     		add	r0, sp, #12
  240 0092 FFF7FEFF 		bl	HAL_RCC_ClockConfig
  241              	.LVL7:
- 167:Core/Src/main.c ****   {
- 242              		.loc 1 167 6 view .LVU66
+ 169:Core/Src/main.c ****   {
+ 242              		.loc 1 169 6 view .LVU66
  243 0096 30B9     		cbnz	r0, .L16
- 171:Core/Src/main.c **** 
- 244              		.loc 1 171 1 view .LVU67
+ 173:Core/Src/main.c **** 
+ 244              		.loc 1 173 1 view .LVU67
  245 0098 15B0     		add	sp, sp, #84
  246              	.LCFI3:
  247              		.cfi_remember_state
@@ -1550,21 +1552,21 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccTImMlp.s 			page 1
  251              	.L14:
  252              	.LCFI4:
  253              		.cfi_restore_state
- 148:Core/Src/main.c ****   }
- 254              		.loc 1 148 5 is_stmt 1 view .LVU68
+ 150:Core/Src/main.c ****   }
+ 254              		.loc 1 150 5 is_stmt 1 view .LVU68
  255 009e FFF7FEFF 		bl	Error_Handler
  256              	.LVL8:
  257              	.L15:
- 155:Core/Src/main.c ****   }
- 258              		.loc 1 155 5 view .LVU69
+ 157:Core/Src/main.c ****   }
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccEuWvkD.s 			page 27
+
+
+ 258              		.loc 1 157 5 view .LVU69
  259 00a2 FFF7FEFF 		bl	Error_Handler
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccTImMlp.s 			page 27
-
-
  260              	.LVL9:
  261              	.L16:
- 169:Core/Src/main.c ****   }
- 262              		.loc 1 169 5 view .LVU70
+ 171:Core/Src/main.c ****   }
+ 262              		.loc 1 171 5 view .LVU70
  263 00a6 FFF7FEFF 		bl	Error_Handler
  264              	.LVL10:
  265              	.L18:
@@ -1616,11 +1618,11 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccTImMlp.s 			page 1
  100:Core/Src/main.c **** 
  307              		.loc 1 100 3 view .LVU77
  308 0016 FFF7FEFF 		bl	osKernelInitialize
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccEuWvkD.s 			page 28
+
+
  309              	.LVL16:
  103:Core/Src/main.c **** 
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccTImMlp.s 			page 28
-
-
  310              		.loc 1 103 3 view .LVU78
  311 001a FFF7FEFF 		bl	MX_FREERTOS_Init
  312              	.LVL17:
@@ -1631,45 +1633,60 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccTImMlp.s 			page 1
  316              	.L20:
  112:Core/Src/main.c ****   {
  317              		.loc 1 112 3 discriminator 1 view .LVU80
- 117:Core/Src/main.c ****   /* USER CODE END 3 */
- 318              		.loc 1 117 3 discriminator 1 view .LVU81
+ 117:Core/Src/main.c ****     HAL_Delay(100);
+ 318              		.loc 1 117 5 discriminator 1 view .LVU81
+ 319 0022 0121     		movs	r1, #1
+ 320 0024 0348     		ldr	r0, .L22
+ 321 0026 FFF7FEFF 		bl	HAL_GPIO_TogglePin
+ 322              	.LVL19:
+ 118:Core/Src/main.c ****   }
+ 323              		.loc 1 118 5 discriminator 1 view .LVU82
+ 324 002a 6420     		movs	r0, #100
+ 325 002c FFF7FEFF 		bl	HAL_Delay
+ 326              	.LVL20:
  112:Core/Src/main.c ****   {
- 319              		.loc 1 112 9 discriminator 1 view .LVU82
- 320 0022 FEE7     		b	.L20
- 321              		.cfi_endproc
- 322              	.LFE138:
- 324              		.text
- 325              	.Letext0:
- 326              		.file 3 "d:\\chain\\gcc-arm-none-eabi-10.3-2021.10-win32\\gcc-arm-none-eabi-10.3-2021.10\\arm-none
- 327              		.file 4 "d:\\chain\\gcc-arm-none-eabi-10.3-2021.10-win32\\gcc-arm-none-eabi-10.3-2021.10\\arm-none
- 328              		.file 5 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f427xx.h"
- 329              		.file 6 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h"
- 330              		.file 7 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc_ex.h"
- 331              		.file 8 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc.h"
- 332              		.file 9 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma.h"
- 333              		.file 10 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h"
- 334              		.file 11 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h"
- 335              		.file 12 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr_ex.h"
- 336              		.file 13 "Core/Inc/gpio.h"
- 337              		.file 14 "Core/Inc/dma.h"
- 338              		.file 15 "Core/Inc/usart.h"
- 339              		.file 16 "Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.h"
- 340              		.file 17 "<built-in>"
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccTImMlp.s 			page 29
+ 327              		.loc 1 112 9 discriminator 1 view .LVU83
+ 328 0030 F7E7     		b	.L20
+ 329              	.L23:
+ 330 0032 00BF     		.align	2
+ 331              	.L22:
+ 332 0034 00080240 		.word	1073874944
+ 333              		.cfi_endproc
+ 334              	.LFE138:
+ 336              		.text
+ 337              	.Letext0:
+ 338              		.file 3 "d:\\chain\\gcc-arm-none-eabi-10.3-2021.10-win32\\gcc-arm-none-eabi-10.3-2021.10\\arm-none
+ 339              		.file 4 "d:\\chain\\gcc-arm-none-eabi-10.3-2021.10-win32\\gcc-arm-none-eabi-10.3-2021.10\\arm-none
+ 340              		.file 5 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f427xx.h"
+ 341              		.file 6 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h"
+ 342              		.file 7 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc_ex.h"
+ 343              		.file 8 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc.h"
+ 344              		.file 9 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma.h"
+ 345              		.file 10 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h"
+ 346              		.file 11 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h"
+ 347              		.file 12 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr_ex.h"
+ 348              		.file 13 "Core/Inc/gpio.h"
+ 349              		.file 14 "Core/Inc/dma.h"
+ 350              		.file 15 "Core/Inc/usart.h"
+ 351              		.file 16 "Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.h"
+ 352              		.file 17 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio.h"
+ 353              		.file 18 "<built-in>"
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccEuWvkD.s 			page 29
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 main.c
-C:\Users\ASUS\AppData\Local\Temp\ccTImMlp.s:20     .text.HAL_TIM_PeriodElapsedCallback:00000000 $t
-C:\Users\ASUS\AppData\Local\Temp\ccTImMlp.s:26     .text.HAL_TIM_PeriodElapsedCallback:00000000 HAL_TIM_PeriodElapsedCallback
-C:\Users\ASUS\AppData\Local\Temp\ccTImMlp.s:61     .text.HAL_TIM_PeriodElapsedCallback:00000014 $d
-C:\Users\ASUS\AppData\Local\Temp\ccTImMlp.s:66     .text.Error_Handler:00000000 $t
-C:\Users\ASUS\AppData\Local\Temp\ccTImMlp.s:72     .text.Error_Handler:00000000 Error_Handler
-C:\Users\ASUS\AppData\Local\Temp\ccTImMlp.s:104    .text.SystemClock_Config:00000000 $t
-C:\Users\ASUS\AppData\Local\Temp\ccTImMlp.s:110    .text.SystemClock_Config:00000000 SystemClock_Config
-C:\Users\ASUS\AppData\Local\Temp\ccTImMlp.s:268    .text.SystemClock_Config:000000ac $d
-C:\Users\ASUS\AppData\Local\Temp\ccTImMlp.s:274    .text.main:00000000 $t
-C:\Users\ASUS\AppData\Local\Temp\ccTImMlp.s:280    .text.main:00000000 main
+C:\Users\ASUS\AppData\Local\Temp\ccEuWvkD.s:20     .text.HAL_TIM_PeriodElapsedCallback:00000000 $t
+C:\Users\ASUS\AppData\Local\Temp\ccEuWvkD.s:26     .text.HAL_TIM_PeriodElapsedCallback:00000000 HAL_TIM_PeriodElapsedCallback
+C:\Users\ASUS\AppData\Local\Temp\ccEuWvkD.s:61     .text.HAL_TIM_PeriodElapsedCallback:00000014 $d
+C:\Users\ASUS\AppData\Local\Temp\ccEuWvkD.s:66     .text.Error_Handler:00000000 $t
+C:\Users\ASUS\AppData\Local\Temp\ccEuWvkD.s:72     .text.Error_Handler:00000000 Error_Handler
+C:\Users\ASUS\AppData\Local\Temp\ccEuWvkD.s:104    .text.SystemClock_Config:00000000 $t
+C:\Users\ASUS\AppData\Local\Temp\ccEuWvkD.s:110    .text.SystemClock_Config:00000000 SystemClock_Config
+C:\Users\ASUS\AppData\Local\Temp\ccEuWvkD.s:268    .text.SystemClock_Config:000000ac $d
+C:\Users\ASUS\AppData\Local\Temp\ccEuWvkD.s:274    .text.main:00000000 $t
+C:\Users\ASUS\AppData\Local\Temp\ccEuWvkD.s:280    .text.main:00000000 main
+C:\Users\ASUS\AppData\Local\Temp\ccEuWvkD.s:332    .text.main:00000034 $d
 
 UNDEFINED SYMBOLS
 HAL_IncTick
@@ -1684,3 +1701,5 @@ MX_USART6_UART_Init
 osKernelInitialize
 MX_FREERTOS_Init
 osKernelStart
+HAL_GPIO_TogglePin
+HAL_Delay

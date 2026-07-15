@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccvq2hhr.s 			page 1
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccu7VAaG.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -19,14 +19,14 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccvq2hhr.s 			page 1
   16              		.text
   17              	.Ltext0:
   18              		.cfi_sections	.debug_frame
-  19              		.section	.text.StartLED_Task,"ax",%progbits
+  19              		.section	.text.StartBtn_Task,"ax",%progbits
   20              		.align	1
-  21              		.global	StartLED_Task
+  21              		.global	StartBtn_Task
   22              		.syntax unified
   23              		.thumb
   24              		.thumb_func
-  26              	StartLED_Task:
-  27              	.LFB140:
+  26              	StartBtn_Task:
+  27              	.LFB139:
   28              		.file 1 "Core/Src/freertos.c"
    1:Core/Src/freertos.c **** /* USER CODE BEGIN Header */
    2:Core/Src/freertos.c **** /**
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccvq2hhr.s 			page 1
   28:Core/Src/freertos.c **** #include "Emm_V5.h"
   29:Core/Src/freertos.c **** #include "stdbool.h"
   30:Core/Src/freertos.c **** /* USER CODE END Includes */
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccvq2hhr.s 			page 2
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccu7VAaG.s 			page 2
 
 
   31:Core/Src/freertos.c **** 
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccvq2hhr.s 			page 1
   85:Core/Src/freertos.c **** /* Private function prototypes -----------------------------------------------*/
   86:Core/Src/freertos.c **** /* USER CODE BEGIN FunctionPrototypes */
   87:Core/Src/freertos.c **** 
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccvq2hhr.s 			page 3
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccu7VAaG.s 			page 3
 
 
   88:Core/Src/freertos.c **** /* USER CODE END FunctionPrototypes */
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccvq2hhr.s 			page 1
  142:Core/Src/freertos.c **** 
  143:Core/Src/freertos.c ****   /* USER CODE BEGIN RTOS_EVENTS */
  144:Core/Src/freertos.c ****   /* add events, ... */
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccvq2hhr.s 			page 4
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccu7VAaG.s 			page 4
 
 
  145:Core/Src/freertos.c ****   /* USER CODE END RTOS_EVENTS */
@@ -194,6 +194,21 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccvq2hhr.s 			page 1
  155:Core/Src/freertos.c **** /* USER CODE END Header_StartBtn_Task */
  156:Core/Src/freertos.c **** void StartBtn_Task(void *argument)
  157:Core/Src/freertos.c **** {
+  29              		.loc 1 157 1 view -0
+  30              		.cfi_startproc
+  31              		@ Volatile: function does not return.
+  32              		@ args = 0, pretend = 0, frame = 0
+  33              		@ frame_needed = 0, uses_anonymous_args = 0
+  34              	.LVL0:
+  35              		.loc 1 157 1 is_stmt 0 view .LVU1
+  36 0000 08B5     		push	{r3, lr}
+  37              	.LCFI0:
+  38              		.cfi_def_cfa_offset 8
+  39              		.cfi_offset 3, -8
+  40              		.cfi_offset 14, -4
+  41 0002 09E0     		b	.L2
+  42              	.LVL1:
+  43              	.L9:
  158:Core/Src/freertos.c ****   /* USER CODE BEGIN StartBtn_Task */
  159:Core/Src/freertos.c **** 
  160:Core/Src/freertos.c ****   /* Infinite loop */
@@ -210,11 +225,104 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccvq2hhr.s 			page 1
  171:Core/Src/freertos.c ****       while (HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_9) == GPIO_PIN_RESET)
  172:Core/Src/freertos.c ****       {
  173:Core/Src/freertos.c ****         osDelay(10); // 等待按键释放
+  44              		.loc 1 173 9 is_stmt 1 view .LVU2
+  45 0004 0A20     		movs	r0, #10
+  46 0006 FFF7FEFF 		bl	osDelay
+  47              	.LVL2:
+  48              	.L5:
+ 171:Core/Src/freertos.c ****       {
+  49              		.loc 1 171 13 view .LVU3
+ 171:Core/Src/freertos.c ****       {
+  50              		.loc 1 171 14 is_stmt 0 view .LVU4
+  51 000a 4FF40071 		mov	r1, #512
+  52 000e 1248     		ldr	r0, .L10
+  53 0010 FFF7FEFF 		bl	HAL_GPIO_ReadPin
+  54              	.LVL3:
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccu7VAaG.s 			page 5
+
+
+ 171:Core/Src/freertos.c ****       {
+  55              		.loc 1 171 13 view .LVU5
+  56 0014 0028     		cmp	r0, #0
+  57 0016 F5D0     		beq	.L9
+  58              	.L2:
+ 161:Core/Src/freertos.c ****   {
+  59              		.loc 1 161 3 is_stmt 1 view .LVU6
+ 163:Core/Src/freertos.c ****     {
+  60              		.loc 1 163 5 view .LVU7
+ 163:Core/Src/freertos.c ****     {
+  61              		.loc 1 163 9 is_stmt 0 view .LVU8
+  62 0018 4FF40071 		mov	r1, #512
+  63 001c 0E48     		ldr	r0, .L10
+  64 001e FFF7FEFF 		bl	HAL_GPIO_ReadPin
+  65              	.LVL4:
+ 163:Core/Src/freertos.c ****     {
+  66              		.loc 1 163 8 view .LVU9
+  67 0022 A8B9     		cbnz	r0, .L3
+ 165:Core/Src/freertos.c ****       if (HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_9) == GPIO_PIN_RESET)
+  68              		.loc 1 165 7 is_stmt 1 view .LVU10
+  69 0024 0A20     		movs	r0, #10
+  70 0026 FFF7FEFF 		bl	osDelay
+  71              	.LVL5:
+ 166:Core/Src/freertos.c ****       {
+  72              		.loc 1 166 7 view .LVU11
+ 166:Core/Src/freertos.c ****       {
+  73              		.loc 1 166 11 is_stmt 0 view .LVU12
+  74 002a 4FF40071 		mov	r1, #512
+  75 002e 0A48     		ldr	r0, .L10
+  76 0030 FFF7FEFF 		bl	HAL_GPIO_ReadPin
+  77              	.LVL6:
+ 166:Core/Src/freertos.c ****       {
+  78              		.loc 1 166 10 view .LVU13
+  79 0034 0028     		cmp	r0, #0
+  80 0036 E8D1     		bne	.L5
+ 168:Core/Src/freertos.c ****         osMessageQueuePut(Btn1_QueueHandle, &btn1_counter, NULL, osWaitForever);
+  81              		.loc 1 168 9 is_stmt 1 view .LVU14
+ 168:Core/Src/freertos.c ****         osMessageQueuePut(Btn1_QueueHandle, &btn1_counter, NULL, osWaitForever);
+  82              		.loc 1 168 21 is_stmt 0 view .LVU15
+  83 0038 0849     		ldr	r1, .L10+4
+  84 003a 0B88     		ldrh	r3, [r1]
+  85 003c 0133     		adds	r3, r3, #1
+  86 003e 0B80     		strh	r3, [r1]	@ movhi
+ 169:Core/Src/freertos.c ****       }
+  87              		.loc 1 169 9 is_stmt 1 view .LVU16
+  88 0040 4FF0FF33 		mov	r3, #-1
+  89 0044 0022     		movs	r2, #0
+  90 0046 0648     		ldr	r0, .L10+8
+  91 0048 0068     		ldr	r0, [r0]
+  92 004a FFF7FEFF 		bl	osMessageQueuePut
+  93              	.LVL7:
+  94 004e DCE7     		b	.L5
+  95              	.L3:
  174:Core/Src/freertos.c ****       }
  175:Core/Src/freertos.c ****     }
  176:Core/Src/freertos.c ****     else
  177:Core/Src/freertos.c ****     {
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccu7VAaG.s 			page 6
+
+
  178:Core/Src/freertos.c ****       osDelay(10);
+  96              		.loc 1 178 7 view .LVU17
+  97 0050 0A20     		movs	r0, #10
+  98 0052 FFF7FEFF 		bl	osDelay
+  99              	.LVL8:
+ 100 0056 DFE7     		b	.L2
+ 101              	.L11:
+ 102              		.align	2
+ 103              	.L10:
+ 104 0058 00040240 		.word	1073873920
+ 105 005c 00000000 		.word	.LANCHOR0
+ 106 0060 00000000 		.word	.LANCHOR1
+ 107              		.cfi_endproc
+ 108              	.LFE139:
+ 110              		.section	.text.StartLED_Task,"ax",%progbits
+ 111              		.align	1
+ 112              		.global	StartLED_Task
+ 113              		.syntax unified
+ 114              		.thumb
+ 115              		.thumb_func
+ 117              	StartLED_Task:
+ 118              	.LFB140:
  179:Core/Src/freertos.c ****     }
  180:Core/Src/freertos.c ****   }
  181:Core/Src/freertos.c ****   /* USER CODE END StartBtn_Task */
@@ -229,30 +337,30 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccvq2hhr.s 			page 1
  190:Core/Src/freertos.c **** /* USER CODE END Header_StartLED_Task */
  191:Core/Src/freertos.c **** void StartLED_Task(void *argument)
  192:Core/Src/freertos.c **** {
-  29              		.loc 1 192 1 view -0
-  30              		.cfi_startproc
-  31              		@ Volatile: function does not return.
-  32              		@ args = 0, pretend = 0, frame = 0
-  33              		@ frame_needed = 0, uses_anonymous_args = 0
-  34              	.LVL0:
-  35              		.loc 1 192 1 is_stmt 0 view .LVU1
-  36 0000 08B5     		push	{r3, lr}
-  37              	.LCFI0:
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccvq2hhr.s 			page 5
-
-
-  38              		.cfi_def_cfa_offset 8
-  39              		.cfi_offset 3, -8
-  40              		.cfi_offset 14, -4
-  41              	.LVL1:
-  42              	.L2:
+ 119              		.loc 1 192 1 view -0
+ 120              		.cfi_startproc
+ 121              		@ Volatile: function does not return.
+ 122              		@ args = 0, pretend = 0, frame = 0
+ 123              		@ frame_needed = 0, uses_anonymous_args = 0
+ 124              	.LVL9:
+ 125              		.loc 1 192 1 is_stmt 0 view .LVU19
+ 126 0000 08B5     		push	{r3, lr}
+ 127              	.LCFI1:
+ 128              		.cfi_def_cfa_offset 8
+ 129              		.cfi_offset 3, -8
+ 130              		.cfi_offset 14, -4
+ 131              	.LVL10:
+ 132              	.L13:
  193:Core/Src/freertos.c ****   /* USER CODE BEGIN StartLED_Task */
  194:Core/Src/freertos.c **** 
  195:Core/Src/freertos.c ****   /* Infinite loop */
  196:Core/Src/freertos.c ****   for(;;)
-  43              		.loc 1 196 3 is_stmt 1 discriminator 1 view .LVU2
+ 133              		.loc 1 196 3 is_stmt 1 discriminator 1 view .LVU20
  197:Core/Src/freertos.c ****   {
  198:Core/Src/freertos.c ****     // osMessageQueueGet(Btn1_QueueHandle, &btn1_counter, NULL, osWaitForever);
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccu7VAaG.s 			page 7
+
+
  199:Core/Src/freertos.c ****     // if (btn1_counter % 2 == 0) {
  200:Core/Src/freertos.c ****     //   HAL_GPIO_WritePin(GPIOC, GPIO_PIN_0, GPIO_PIN_RESET);
  201:Core/Src/freertos.c ****     // } 
@@ -260,574 +368,474 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccvq2hhr.s 			page 1
  203:Core/Src/freertos.c ****     // {
  204:Core/Src/freertos.c ****     //   HAL_GPIO_WritePin(GPIOC, GPIO_PIN_0, GPIO_PIN_SET);
  205:Core/Src/freertos.c ****     // }
- 206:Core/Src/freertos.c ****     osDelay(1);
-  44              		.loc 1 206 5 discriminator 1 view .LVU3
-  45 0002 0120     		movs	r0, #1
-  46 0004 FFF7FEFF 		bl	osDelay
-  47              	.LVL2:
+ 206:Core/Src/freertos.c ****     HAL_GPIO_TogglePin(GPIOB, GPIO_PIN_8);
+ 134              		.loc 1 206 5 discriminator 1 view .LVU21
+ 135 0002 4FF48071 		mov	r1, #256
+ 136 0006 0348     		ldr	r0, .L15
+ 137 0008 FFF7FEFF 		bl	HAL_GPIO_TogglePin
+ 138              	.LVL11:
+ 207:Core/Src/freertos.c ****     osDelay(100);
+ 139              		.loc 1 207 5 discriminator 1 view .LVU22
+ 140 000c 6420     		movs	r0, #100
+ 141 000e FFF7FEFF 		bl	osDelay
+ 142              	.LVL12:
  196:Core/Src/freertos.c ****   {
-  48              		.loc 1 196 8 discriminator 1 view .LVU4
-  49 0008 FBE7     		b	.L2
-  50              		.cfi_endproc
-  51              	.LFE140:
-  53              		.section	.text.StartBtn_Task,"ax",%progbits
-  54              		.align	1
-  55              		.global	StartBtn_Task
-  56              		.syntax unified
-  57              		.thumb
-  58              		.thumb_func
-  60              	StartBtn_Task:
-  61              	.LFB139:
- 157:Core/Src/freertos.c ****   /* USER CODE BEGIN StartBtn_Task */
-  62              		.loc 1 157 1 view -0
-  63              		.cfi_startproc
-  64              		@ Volatile: function does not return.
-  65              		@ args = 0, pretend = 0, frame = 0
-  66              		@ frame_needed = 0, uses_anonymous_args = 0
-  67              	.LVL3:
- 157:Core/Src/freertos.c ****   /* USER CODE BEGIN StartBtn_Task */
-  68              		.loc 1 157 1 is_stmt 0 view .LVU6
-  69 0000 08B5     		push	{r3, lr}
-  70              	.LCFI1:
-  71              		.cfi_def_cfa_offset 8
-  72              		.cfi_offset 3, -8
-  73              		.cfi_offset 14, -4
-  74 0002 09E0     		b	.L5
-  75              	.LVL4:
-  76              	.L12:
- 173:Core/Src/freertos.c ****       }
-  77              		.loc 1 173 9 is_stmt 1 view .LVU7
-  78 0004 0A20     		movs	r0, #10
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccvq2hhr.s 			page 6
+ 143              		.loc 1 196 8 discriminator 1 view .LVU23
+ 144 0012 F6E7     		b	.L13
+ 145              	.L16:
+ 146              		.align	2
+ 147              	.L15:
+ 148 0014 00040240 		.word	1073873920
+ 149              		.cfi_endproc
+ 150              	.LFE140:
+ 152              		.section	.text.StartMotor_Task,"ax",%progbits
+ 153              		.align	1
+ 154              		.global	StartMotor_Task
+ 155              		.syntax unified
+ 156              		.thumb
+ 157              		.thumb_func
+ 159              	StartMotor_Task:
+ 160              	.LVL13:
+ 161              	.LFB141:
+ 208:Core/Src/freertos.c ****   }
+ 209:Core/Src/freertos.c ****   /* USER CODE END StartLED_Task */
+ 210:Core/Src/freertos.c **** }
+ 211:Core/Src/freertos.c **** 
+ 212:Core/Src/freertos.c **** /* USER CODE BEGIN Header_StartMotor_Task */
+ 213:Core/Src/freertos.c **** /**
+ 214:Core/Src/freertos.c **** * @brief Function implementing the Motor_Task thread.
+ 215:Core/Src/freertos.c **** * @param argument: Not used
+ 216:Core/Src/freertos.c **** * @retval None
+ 217:Core/Src/freertos.c **** */
+ 218:Core/Src/freertos.c **** /* USER CODE END Header_StartMotor_Task */
+ 219:Core/Src/freertos.c **** void StartMotor_Task(void *argument)
+ 220:Core/Src/freertos.c **** {
+ 162              		.loc 1 220 1 view -0
+ 163              		.cfi_startproc
+ 164              		@ args = 0, pretend = 0, frame = 0
+ 165              		@ frame_needed = 0, uses_anonymous_args = 0
+ 166              		.loc 1 220 1 is_stmt 0 view .LVU25
+ 167 0000 10B5     		push	{r4, lr}
+ 168              	.LCFI2:
+ 169              		.cfi_def_cfa_offset 8
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccu7VAaG.s 			page 8
 
 
-  79 0006 FFF7FEFF 		bl	osDelay
-  80              	.LVL5:
-  81              	.L8:
- 171:Core/Src/freertos.c ****       {
-  82              		.loc 1 171 13 view .LVU8
- 171:Core/Src/freertos.c ****       {
-  83              		.loc 1 171 14 is_stmt 0 view .LVU9
-  84 000a 4FF40071 		mov	r1, #512
-  85 000e 1248     		ldr	r0, .L13
-  86 0010 FFF7FEFF 		bl	HAL_GPIO_ReadPin
-  87              	.LVL6:
- 171:Core/Src/freertos.c ****       {
-  88              		.loc 1 171 13 view .LVU10
-  89 0014 0028     		cmp	r0, #0
-  90 0016 F5D0     		beq	.L12
-  91              	.L5:
- 161:Core/Src/freertos.c ****   {
-  92              		.loc 1 161 3 is_stmt 1 view .LVU11
- 163:Core/Src/freertos.c ****     {
-  93              		.loc 1 163 5 view .LVU12
- 163:Core/Src/freertos.c ****     {
-  94              		.loc 1 163 9 is_stmt 0 view .LVU13
-  95 0018 4FF40071 		mov	r1, #512
-  96 001c 0E48     		ldr	r0, .L13
-  97 001e FFF7FEFF 		bl	HAL_GPIO_ReadPin
-  98              	.LVL7:
- 163:Core/Src/freertos.c ****     {
-  99              		.loc 1 163 8 view .LVU14
- 100 0022 A8B9     		cbnz	r0, .L6
- 165:Core/Src/freertos.c ****       if (HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_9) == GPIO_PIN_RESET)
- 101              		.loc 1 165 7 is_stmt 1 view .LVU15
- 102 0024 0A20     		movs	r0, #10
- 103 0026 FFF7FEFF 		bl	osDelay
- 104              	.LVL8:
- 166:Core/Src/freertos.c ****       {
- 105              		.loc 1 166 7 view .LVU16
- 166:Core/Src/freertos.c ****       {
- 106              		.loc 1 166 11 is_stmt 0 view .LVU17
- 107 002a 4FF40071 		mov	r1, #512
- 108 002e 0A48     		ldr	r0, .L13
- 109 0030 FFF7FEFF 		bl	HAL_GPIO_ReadPin
- 110              	.LVL9:
- 166:Core/Src/freertos.c ****       {
- 111              		.loc 1 166 10 view .LVU18
- 112 0034 0028     		cmp	r0, #0
- 113 0036 E8D1     		bne	.L8
- 168:Core/Src/freertos.c ****         osMessageQueuePut(Btn1_QueueHandle, &btn1_counter, NULL, osWaitForever);
- 114              		.loc 1 168 9 is_stmt 1 view .LVU19
- 168:Core/Src/freertos.c ****         osMessageQueuePut(Btn1_QueueHandle, &btn1_counter, NULL, osWaitForever);
- 115              		.loc 1 168 21 is_stmt 0 view .LVU20
- 116 0038 0849     		ldr	r1, .L13+4
- 117 003a 0B88     		ldrh	r3, [r1]
- 118 003c 0133     		adds	r3, r3, #1
- 119 003e 0B80     		strh	r3, [r1]	@ movhi
- 169:Core/Src/freertos.c ****       }
- 120              		.loc 1 169 9 is_stmt 1 view .LVU21
- 121 0040 4FF0FF33 		mov	r3, #-1
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccvq2hhr.s 			page 7
+ 170              		.cfi_offset 4, -8
+ 171              		.cfi_offset 14, -4
+ 172 0002 82B0     		sub	sp, sp, #8
+ 173              	.LCFI3:
+ 174              		.cfi_def_cfa_offset 16
+ 221:Core/Src/freertos.c ****   /* USER CODE BEGIN StartMotor_Task */
+ 222:Core/Src/freertos.c ****   uint16_t motor_vel_init = 500;
+ 175              		.loc 1 222 3 is_stmt 1 view .LVU26
+ 176              	.LVL14:
+ 223:Core/Src/freertos.c ****   Emm_V5_En_Control(0x01, true, false);
+ 177              		.loc 1 223 3 view .LVU27
+ 178 0004 0022     		movs	r2, #0
+ 179 0006 0121     		movs	r1, #1
+ 180 0008 0846     		mov	r0, r1
+ 181              	.LVL15:
+ 182              		.loc 1 223 3 is_stmt 0 view .LVU28
+ 183 000a FFF7FEFF 		bl	Emm_V5_En_Control
+ 184              	.LVL16:
+ 224:Core/Src/freertos.c ****   osDelay(10);
+ 185              		.loc 1 224 3 is_stmt 1 view .LVU29
+ 186 000e 0A20     		movs	r0, #10
+ 187 0010 FFF7FEFF 		bl	osDelay
+ 188              	.LVL17:
+ 225:Core/Src/freertos.c ****   Emm_V5_Vel_Control(0x01, 0x00, motor_vel_init, 50, false);
+ 189              		.loc 1 225 3 view .LVU30
+ 190 0014 0021     		movs	r1, #0
+ 191 0016 0091     		str	r1, [sp]
+ 192 0018 3223     		movs	r3, #50
+ 193 001a 4FF4FA72 		mov	r2, #500
+ 194 001e 0120     		movs	r0, #1
+ 195 0020 FFF7FEFF 		bl	Emm_V5_Vel_Control
+ 196              	.LVL18:
+ 226:Core/Src/freertos.c ****   osDelay(10);
+ 197              		.loc 1 226 3 view .LVU31
+ 198 0024 0A20     		movs	r0, #10
+ 199 0026 FFF7FEFF 		bl	osDelay
+ 200              	.LVL19:
+ 201 002a 0AE0     		b	.L20
+ 202              	.L22:
+ 227:Core/Src/freertos.c ****   /* Infinite loop */
+ 228:Core/Src/freertos.c ****   for(;;)
+ 229:Core/Src/freertos.c ****   {
+ 230:Core/Src/freertos.c ****     osMessageQueueGet(Btn1_QueueHandle, &btn1_counter, NULL, osWaitForever);
+ 231:Core/Src/freertos.c ****     if (btn1_counter % 2 == 0)
+ 232:Core/Src/freertos.c ****     {
+ 233:Core/Src/freertos.c ****       Emm_V5_Vel_Control(0x01, 0x00, motor_vel_init, 50, false);
+ 203              		.loc 1 233 7 view .LVU32
+ 204 002c 0021     		movs	r1, #0
+ 205 002e 0091     		str	r1, [sp]
+ 206 0030 3223     		movs	r3, #50
+ 207 0032 4FF4FA72 		mov	r2, #500
+ 208 0036 0120     		movs	r0, #1
+ 209 0038 FFF7FEFF 		bl	Emm_V5_Vel_Control
+ 210              	.LVL20:
+ 211              	.L19:
+ 234:Core/Src/freertos.c ****     }
+ 235:Core/Src/freertos.c ****     else
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccu7VAaG.s 			page 9
 
 
- 122 0044 0022     		movs	r2, #0
- 123 0046 0648     		ldr	r0, .L13+8
- 124 0048 0068     		ldr	r0, [r0]
- 125 004a FFF7FEFF 		bl	osMessageQueuePut
- 126              	.LVL10:
- 127 004e DCE7     		b	.L8
- 128              	.L6:
- 178:Core/Src/freertos.c ****     }
- 129              		.loc 1 178 7 view .LVU22
- 130 0050 0A20     		movs	r0, #10
- 131 0052 FFF7FEFF 		bl	osDelay
- 132              	.LVL11:
- 133 0056 DFE7     		b	.L5
- 134              	.L14:
- 135              		.align	2
- 136              	.L13:
- 137 0058 00040240 		.word	1073873920
- 138 005c 00000000 		.word	.LANCHOR0
- 139 0060 00000000 		.word	.LANCHOR1
- 140              		.cfi_endproc
- 141              	.LFE139:
- 143              		.section	.text.StartMotor_Task,"ax",%progbits
- 144              		.align	1
- 145              		.global	StartMotor_Task
- 146              		.syntax unified
- 147              		.thumb
- 148              		.thumb_func
- 150              	StartMotor_Task:
- 151              	.LVL12:
- 152              	.LFB141:
- 207:Core/Src/freertos.c ****   }
- 208:Core/Src/freertos.c ****   /* USER CODE END StartLED_Task */
- 209:Core/Src/freertos.c **** }
- 210:Core/Src/freertos.c **** 
- 211:Core/Src/freertos.c **** /* USER CODE BEGIN Header_StartMotor_Task */
- 212:Core/Src/freertos.c **** /**
- 213:Core/Src/freertos.c **** * @brief Function implementing the Motor_Task thread.
- 214:Core/Src/freertos.c **** * @param argument: Not used
- 215:Core/Src/freertos.c **** * @retval None
- 216:Core/Src/freertos.c **** */
- 217:Core/Src/freertos.c **** /* USER CODE END Header_StartMotor_Task */
- 218:Core/Src/freertos.c **** void StartMotor_Task(void *argument)
- 219:Core/Src/freertos.c **** {
- 153              		.loc 1 219 1 view -0
- 154              		.cfi_startproc
- 155              		@ args = 0, pretend = 0, frame = 0
- 156              		@ frame_needed = 0, uses_anonymous_args = 0
- 157              		.loc 1 219 1 is_stmt 0 view .LVU24
- 158 0000 10B5     		push	{r4, lr}
- 159              	.LCFI2:
- 160              		.cfi_def_cfa_offset 8
- 161              		.cfi_offset 4, -8
- 162              		.cfi_offset 14, -4
- 163 0002 82B0     		sub	sp, sp, #8
- 164              	.LCFI3:
- 165              		.cfi_def_cfa_offset 16
- 220:Core/Src/freertos.c ****   /* USER CODE BEGIN StartMotor_Task */
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccvq2hhr.s 			page 8
-
-
- 221:Core/Src/freertos.c ****   uint16_t motor_vel_init = 500;
- 166              		.loc 1 221 3 is_stmt 1 view .LVU25
- 167              	.LVL13:
- 222:Core/Src/freertos.c ****   Emm_V5_En_Control(0x01, true, false);
- 168              		.loc 1 222 3 view .LVU26
- 169 0004 0022     		movs	r2, #0
- 170 0006 0121     		movs	r1, #1
- 171 0008 0846     		mov	r0, r1
- 172              	.LVL14:
- 173              		.loc 1 222 3 is_stmt 0 view .LVU27
- 174 000a FFF7FEFF 		bl	Emm_V5_En_Control
- 175              	.LVL15:
- 223:Core/Src/freertos.c ****   osDelay(10);
- 176              		.loc 1 223 3 is_stmt 1 view .LVU28
- 177 000e 0A20     		movs	r0, #10
- 178 0010 FFF7FEFF 		bl	osDelay
- 179              	.LVL16:
- 224:Core/Src/freertos.c ****   Emm_V5_Vel_Control(0x01, 0x00, motor_vel_init, 50, false);
- 180              		.loc 1 224 3 view .LVU29
- 181 0014 0021     		movs	r1, #0
- 182 0016 0091     		str	r1, [sp]
- 183 0018 3223     		movs	r3, #50
- 184 001a 4FF4FA72 		mov	r2, #500
- 185 001e 0120     		movs	r0, #1
- 186 0020 FFF7FEFF 		bl	Emm_V5_Vel_Control
- 187              	.LVL17:
- 225:Core/Src/freertos.c ****   osDelay(10);
- 188              		.loc 1 225 3 view .LVU30
- 189 0024 0A20     		movs	r0, #10
- 190 0026 FFF7FEFF 		bl	osDelay
- 191              	.LVL18:
- 192 002a 0AE0     		b	.L18
- 193              	.L20:
- 226:Core/Src/freertos.c ****   /* Infinite loop */
- 227:Core/Src/freertos.c ****   for(;;)
+ 236:Core/Src/freertos.c ****     {
+ 237:Core/Src/freertos.c ****       Emm_V5_Vel_Control(0x01, 0x01, 0, 50, false);
+ 238:Core/Src/freertos.c ****     }
+ 239:Core/Src/freertos.c ****     osDelay(10);
+ 212              		.loc 1 239 5 view .LVU33
+ 213 003c 0A20     		movs	r0, #10
+ 214 003e FFF7FEFF 		bl	osDelay
+ 215              	.LVL21:
  228:Core/Src/freertos.c ****   {
- 229:Core/Src/freertos.c ****     osMessageQueueGet(Btn1_QueueHandle, &btn1_counter, NULL, osWaitForever);
+ 216              		.loc 1 228 8 view .LVU34
+ 217              	.L20:
+ 228:Core/Src/freertos.c ****   {
+ 218              		.loc 1 228 3 view .LVU35
  230:Core/Src/freertos.c ****     if (btn1_counter % 2 == 0)
- 231:Core/Src/freertos.c ****     {
- 232:Core/Src/freertos.c ****       Emm_V5_Vel_Control(0x01, 0x00, motor_vel_init, 50, false);
- 194              		.loc 1 232 7 view .LVU31
- 195 002c 0021     		movs	r1, #0
- 196 002e 0091     		str	r1, [sp]
- 197 0030 3223     		movs	r3, #50
- 198 0032 4FF4FA72 		mov	r2, #500
- 199 0036 0120     		movs	r0, #1
- 200 0038 FFF7FEFF 		bl	Emm_V5_Vel_Control
- 201              	.LVL19:
- 202              	.L17:
- 233:Core/Src/freertos.c ****     }
- 234:Core/Src/freertos.c ****     else
- 235:Core/Src/freertos.c ****     {
- 236:Core/Src/freertos.c ****       Emm_V5_Vel_Control(0x01, 0x01, 0, 50, false);
- 237:Core/Src/freertos.c ****     }
- 238:Core/Src/freertos.c ****     osDelay(10);
- 203              		.loc 1 238 5 view .LVU32
- 204 003c 0A20     		movs	r0, #10
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccvq2hhr.s 			page 9
-
-
- 205 003e FFF7FEFF 		bl	osDelay
- 206              	.LVL20:
- 227:Core/Src/freertos.c ****   {
- 207              		.loc 1 227 8 view .LVU33
- 208              	.L18:
- 227:Core/Src/freertos.c ****   {
- 209              		.loc 1 227 3 view .LVU34
- 229:Core/Src/freertos.c ****     if (btn1_counter % 2 == 0)
- 210              		.loc 1 229 5 view .LVU35
- 211 0042 0A4C     		ldr	r4, .L21
- 212 0044 4FF0FF33 		mov	r3, #-1
- 213 0048 0022     		movs	r2, #0
- 214 004a 2146     		mov	r1, r4
- 215 004c 0848     		ldr	r0, .L21+4
- 216 004e 0068     		ldr	r0, [r0]
- 217 0050 FFF7FEFF 		bl	osMessageQueueGet
- 218              	.LVL21:
- 230:Core/Src/freertos.c ****     {
  219              		.loc 1 230 5 view .LVU36
- 230:Core/Src/freertos.c ****     {
- 220              		.loc 1 230 26 is_stmt 0 view .LVU37
- 221 0054 2388     		ldrh	r3, [r4]
- 230:Core/Src/freertos.c ****     {
- 222              		.loc 1 230 8 view .LVU38
- 223 0056 13F0010F 		tst	r3, #1
- 224 005a E7D0     		beq	.L20
- 236:Core/Src/freertos.c ****     }
- 225              		.loc 1 236 7 is_stmt 1 view .LVU39
- 226 005c 0022     		movs	r2, #0
- 227 005e 0092     		str	r2, [sp]
- 228 0060 3223     		movs	r3, #50
- 229 0062 0121     		movs	r1, #1
- 230 0064 0846     		mov	r0, r1
- 231 0066 FFF7FEFF 		bl	Emm_V5_Vel_Control
- 232              	.LVL22:
- 233 006a E7E7     		b	.L17
- 234              	.L22:
- 235              		.align	2
- 236              	.L21:
- 237 006c 00000000 		.word	.LANCHOR0
- 238 0070 00000000 		.word	.LANCHOR1
- 239              		.cfi_endproc
- 240              	.LFE141:
- 242              		.section	.text.MX_FREERTOS_Init,"ax",%progbits
- 243              		.align	1
- 244              		.global	MX_FREERTOS_Init
- 245              		.syntax unified
- 246              		.thumb
- 247              		.thumb_func
- 249              	MX_FREERTOS_Init:
- 250              	.LFB138:
+ 220 0042 0A4C     		ldr	r4, .L23
+ 221 0044 4FF0FF33 		mov	r3, #-1
+ 222 0048 0022     		movs	r2, #0
+ 223 004a 2146     		mov	r1, r4
+ 224 004c 0848     		ldr	r0, .L23+4
+ 225 004e 0068     		ldr	r0, [r0]
+ 226 0050 FFF7FEFF 		bl	osMessageQueueGet
+ 227              	.LVL22:
+ 231:Core/Src/freertos.c ****     {
+ 228              		.loc 1 231 5 view .LVU37
+ 231:Core/Src/freertos.c ****     {
+ 229              		.loc 1 231 26 is_stmt 0 view .LVU38
+ 230 0054 2388     		ldrh	r3, [r4]
+ 231:Core/Src/freertos.c ****     {
+ 231              		.loc 1 231 8 view .LVU39
+ 232 0056 13F0010F 		tst	r3, #1
+ 233 005a E7D0     		beq	.L22
+ 237:Core/Src/freertos.c ****     }
+ 234              		.loc 1 237 7 is_stmt 1 view .LVU40
+ 235 005c 0022     		movs	r2, #0
+ 236 005e 0092     		str	r2, [sp]
+ 237 0060 3223     		movs	r3, #50
+ 238 0062 0121     		movs	r1, #1
+ 239 0064 0846     		mov	r0, r1
+ 240 0066 FFF7FEFF 		bl	Emm_V5_Vel_Control
+ 241              	.LVL23:
+ 242 006a E7E7     		b	.L19
+ 243              	.L24:
+ 244              		.align	2
+ 245              	.L23:
+ 246 006c 00000000 		.word	.LANCHOR0
+ 247 0070 00000000 		.word	.LANCHOR1
+ 248              		.cfi_endproc
+ 249              	.LFE141:
+ 251              		.section	.text.MX_FREERTOS_Init,"ax",%progbits
+ 252              		.align	1
+ 253              		.global	MX_FREERTOS_Init
+ 254              		.syntax unified
+ 255              		.thumb
+ 256              		.thumb_func
+ 258              	MX_FREERTOS_Init:
+ 259              	.LFB138:
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccu7VAaG.s 			page 10
+
+
  101:Core/Src/freertos.c ****   /* USER CODE BEGIN Init */
- 251              		.loc 1 101 29 view -0
- 252              		.cfi_startproc
- 253              		@ args = 0, pretend = 0, frame = 0
- 254              		@ frame_needed = 0, uses_anonymous_args = 0
- 255 0000 08B5     		push	{r3, lr}
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccvq2hhr.s 			page 10
-
-
- 256              	.LCFI4:
- 257              		.cfi_def_cfa_offset 8
- 258              		.cfi_offset 3, -8
- 259              		.cfi_offset 14, -4
+ 260              		.loc 1 101 29 view -0
+ 261              		.cfi_startproc
+ 262              		@ args = 0, pretend = 0, frame = 0
+ 263              		@ frame_needed = 0, uses_anonymous_args = 0
+ 264 0000 08B5     		push	{r3, lr}
+ 265              	.LCFI4:
+ 266              		.cfi_def_cfa_offset 8
+ 267              		.cfi_offset 3, -8
+ 268              		.cfi_offset 14, -4
  120:Core/Src/freertos.c **** 
- 260              		.loc 1 120 3 view .LVU41
+ 269              		.loc 1 120 3 view .LVU42
  120:Core/Src/freertos.c **** 
- 261              		.loc 1 120 22 is_stmt 0 view .LVU42
- 262 0002 124A     		ldr	r2, .L25
- 263 0004 0221     		movs	r1, #2
- 264 0006 1020     		movs	r0, #16
- 265 0008 FFF7FEFF 		bl	osMessageQueueNew
- 266              	.LVL23:
+ 270              		.loc 1 120 22 is_stmt 0 view .LVU43
+ 271 0002 124A     		ldr	r2, .L27
+ 272 0004 0221     		movs	r1, #2
+ 273 0006 1020     		movs	r0, #16
+ 274 0008 FFF7FEFF 		bl	osMessageQueueNew
+ 275              	.LVL24:
  120:Core/Src/freertos.c **** 
- 267              		.loc 1 120 20 view .LVU43
- 268 000c 104B     		ldr	r3, .L25+4
- 269 000e 1860     		str	r0, [r3]
+ 276              		.loc 1 120 20 view .LVU44
+ 277 000c 104B     		ldr	r3, .L27+4
+ 278 000e 1860     		str	r0, [r3]
  123:Core/Src/freertos.c **** 
- 270              		.loc 1 123 3 is_stmt 1 view .LVU44
+ 279              		.loc 1 123 3 is_stmt 1 view .LVU45
  123:Core/Src/freertos.c **** 
- 271              		.loc 1 123 22 is_stmt 0 view .LVU45
- 272 0010 104A     		ldr	r2, .L25+8
- 273 0012 0221     		movs	r1, #2
- 274 0014 1020     		movs	r0, #16
- 275 0016 FFF7FEFF 		bl	osMessageQueueNew
- 276              	.LVL24:
+ 280              		.loc 1 123 22 is_stmt 0 view .LVU46
+ 281 0010 104A     		ldr	r2, .L27+8
+ 282 0012 0221     		movs	r1, #2
+ 283 0014 1020     		movs	r0, #16
+ 284 0016 FFF7FEFF 		bl	osMessageQueueNew
+ 285              	.LVL25:
  123:Core/Src/freertos.c **** 
- 277              		.loc 1 123 20 view .LVU46
- 278 001a 0F4B     		ldr	r3, .L25+12
- 279 001c 1860     		str	r0, [r3]
+ 286              		.loc 1 123 20 view .LVU47
+ 287 001a 0F4B     		ldr	r3, .L27+12
+ 288 001c 1860     		str	r0, [r3]
  131:Core/Src/freertos.c **** 
- 280              		.loc 1 131 3 is_stmt 1 view .LVU47
+ 289              		.loc 1 131 3 is_stmt 1 view .LVU48
  131:Core/Src/freertos.c **** 
- 281              		.loc 1 131 20 is_stmt 0 view .LVU48
- 282 001e 0F4A     		ldr	r2, .L25+16
- 283 0020 0021     		movs	r1, #0
- 284 0022 0F48     		ldr	r0, .L25+20
- 285 0024 FFF7FEFF 		bl	osThreadNew
- 286              	.LVL25:
+ 290              		.loc 1 131 20 is_stmt 0 view .LVU49
+ 291 001e 0F4A     		ldr	r2, .L27+16
+ 292 0020 0021     		movs	r1, #0
+ 293 0022 0F48     		ldr	r0, .L27+20
+ 294 0024 FFF7FEFF 		bl	osThreadNew
+ 295              	.LVL26:
  131:Core/Src/freertos.c **** 
- 287              		.loc 1 131 18 view .LVU49
- 288 0028 0E4B     		ldr	r3, .L25+24
- 289 002a 1860     		str	r0, [r3]
+ 296              		.loc 1 131 18 view .LVU50
+ 297 0028 0E4B     		ldr	r3, .L27+24
+ 298 002a 1860     		str	r0, [r3]
  134:Core/Src/freertos.c **** 
- 290              		.loc 1 134 3 is_stmt 1 view .LVU50
+ 299              		.loc 1 134 3 is_stmt 1 view .LVU51
  134:Core/Src/freertos.c **** 
- 291              		.loc 1 134 20 is_stmt 0 view .LVU51
- 292 002c 0E4A     		ldr	r2, .L25+28
- 293 002e 0021     		movs	r1, #0
- 294 0030 0E48     		ldr	r0, .L25+32
- 295 0032 FFF7FEFF 		bl	osThreadNew
- 296              	.LVL26:
- 134:Core/Src/freertos.c **** 
- 297              		.loc 1 134 18 view .LVU52
- 298 0036 0E4B     		ldr	r3, .L25+36
- 299 0038 1860     		str	r0, [r3]
- 137:Core/Src/freertos.c **** 
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccvq2hhr.s 			page 11
+ 300              		.loc 1 134 20 is_stmt 0 view .LVU52
+ 301 002c 0E4A     		ldr	r2, .L27+28
+ 302 002e 0021     		movs	r1, #0
+ 303 0030 0E48     		ldr	r0, .L27+32
+ 304 0032 FFF7FEFF 		bl	osThreadNew
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccu7VAaG.s 			page 11
 
 
- 300              		.loc 1 137 3 is_stmt 1 view .LVU53
+ 305              	.LVL27:
+ 134:Core/Src/freertos.c **** 
+ 306              		.loc 1 134 18 view .LVU53
+ 307 0036 0E4B     		ldr	r3, .L27+36
+ 308 0038 1860     		str	r0, [r3]
  137:Core/Src/freertos.c **** 
- 301              		.loc 1 137 22 is_stmt 0 view .LVU54
- 302 003a 0E4A     		ldr	r2, .L25+40
- 303 003c 0021     		movs	r1, #0
- 304 003e 0E48     		ldr	r0, .L25+44
- 305 0040 FFF7FEFF 		bl	osThreadNew
- 306              	.LVL27:
+ 309              		.loc 1 137 3 is_stmt 1 view .LVU54
  137:Core/Src/freertos.c **** 
- 307              		.loc 1 137 20 view .LVU55
- 308 0044 0D4B     		ldr	r3, .L25+48
- 309 0046 1860     		str	r0, [r3]
+ 310              		.loc 1 137 22 is_stmt 0 view .LVU55
+ 311 003a 0E4A     		ldr	r2, .L27+40
+ 312 003c 0021     		movs	r1, #0
+ 313 003e 0E48     		ldr	r0, .L27+44
+ 314 0040 FFF7FEFF 		bl	osThreadNew
+ 315              	.LVL28:
+ 137:Core/Src/freertos.c **** 
+ 316              		.loc 1 137 20 view .LVU56
+ 317 0044 0D4B     		ldr	r3, .L27+48
+ 318 0046 1860     		str	r0, [r3]
  147:Core/Src/freertos.c **** 
- 310              		.loc 1 147 1 view .LVU56
- 311 0048 08BD     		pop	{r3, pc}
- 312              	.L26:
- 313 004a 00BF     		.align	2
- 314              	.L25:
- 315 004c 00000000 		.word	.LANCHOR2
- 316 0050 00000000 		.word	.LANCHOR1
- 317 0054 00000000 		.word	.LANCHOR3
- 318 0058 00000000 		.word	.LANCHOR4
- 319 005c 00000000 		.word	.LANCHOR5
- 320 0060 00000000 		.word	StartBtn_Task
- 321 0064 00000000 		.word	.LANCHOR6
- 322 0068 00000000 		.word	.LANCHOR7
- 323 006c 00000000 		.word	StartLED_Task
- 324 0070 00000000 		.word	.LANCHOR8
- 325 0074 00000000 		.word	.LANCHOR9
- 326 0078 00000000 		.word	StartMotor_Task
- 327 007c 00000000 		.word	.LANCHOR10
- 328              		.cfi_endproc
- 329              	.LFE138:
- 331              		.global	Btn2_Queue_attributes
- 332              		.section	.rodata.str1.4,"aMS",%progbits,1
- 333              		.align	2
- 334              	.LC0:
- 335 0000 42746E32 		.ascii	"Btn2_Queue\000"
- 335      5F517565 
- 335      756500
- 336              		.global	Btn2_QueueHandle
- 337              		.global	Btn1_Queue_attributes
- 338 000b 00       		.align	2
- 339              	.LC1:
- 340 000c 42746E31 		.ascii	"Btn1_Queue\000"
- 340      5F517565 
- 340      756500
- 341              		.global	Btn1_QueueHandle
- 342              		.global	Motor_Task_attributes
- 343 0017 00       		.align	2
- 344              	.LC2:
- 345 0018 4D6F746F 		.ascii	"Motor_Task\000"
- 345      725F5461 
- 345      736B00
- 346              		.global	Motor_TaskHandle
- 347              		.global	LED_Task_attributes
- 348 0023 00       		.align	2
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccvq2hhr.s 			page 12
+ 319              		.loc 1 147 1 view .LVU57
+ 320 0048 08BD     		pop	{r3, pc}
+ 321              	.L28:
+ 322 004a 00BF     		.align	2
+ 323              	.L27:
+ 324 004c 00000000 		.word	.LANCHOR2
+ 325 0050 00000000 		.word	.LANCHOR1
+ 326 0054 00000000 		.word	.LANCHOR3
+ 327 0058 00000000 		.word	.LANCHOR4
+ 328 005c 00000000 		.word	.LANCHOR5
+ 329 0060 00000000 		.word	StartBtn_Task
+ 330 0064 00000000 		.word	.LANCHOR6
+ 331 0068 00000000 		.word	.LANCHOR7
+ 332 006c 00000000 		.word	StartLED_Task
+ 333 0070 00000000 		.word	.LANCHOR8
+ 334 0074 00000000 		.word	.LANCHOR9
+ 335 0078 00000000 		.word	StartMotor_Task
+ 336 007c 00000000 		.word	.LANCHOR10
+ 337              		.cfi_endproc
+ 338              	.LFE138:
+ 340              		.global	Btn2_Queue_attributes
+ 341              		.section	.rodata.str1.4,"aMS",%progbits,1
+ 342              		.align	2
+ 343              	.LC0:
+ 344 0000 42746E32 		.ascii	"Btn2_Queue\000"
+ 344      5F517565 
+ 344      756500
+ 345              		.global	Btn2_QueueHandle
+ 346              		.global	Btn1_Queue_attributes
+ 347 000b 00       		.align	2
+ 348              	.LC1:
+ 349 000c 42746E31 		.ascii	"Btn1_Queue\000"
+ 349      5F517565 
+ 349      756500
+ 350              		.global	Btn1_QueueHandle
+ 351              		.global	Motor_Task_attributes
+ 352 0017 00       		.align	2
+ 353              	.LC2:
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccu7VAaG.s 			page 12
 
 
- 349              	.LC3:
- 350 0024 4C45445F 		.ascii	"LED_Task\000"
- 350      5461736B 
- 350      00
- 351              		.global	LED_TaskHandle
- 352              		.global	Btn_Task_attributes
- 353 002d 000000   		.align	2
- 354              	.LC4:
- 355 0030 42746E5F 		.ascii	"Btn_Task\000"
- 355      5461736B 
- 355      00
- 356              		.global	Btn_TaskHandle
- 357              		.global	btn2_counter
- 358              		.global	btn1_counter
- 359              		.section	.bss.Btn1_QueueHandle,"aw",%nobits
- 360              		.align	2
- 361              		.set	.LANCHOR1,. + 0
- 364              	Btn1_QueueHandle:
- 365 0000 00000000 		.space	4
- 366              		.section	.bss.Btn2_QueueHandle,"aw",%nobits
- 367              		.align	2
- 368              		.set	.LANCHOR4,. + 0
- 371              	Btn2_QueueHandle:
- 372 0000 00000000 		.space	4
- 373              		.section	.bss.Btn_TaskHandle,"aw",%nobits
- 374              		.align	2
- 375              		.set	.LANCHOR6,. + 0
- 378              	Btn_TaskHandle:
- 379 0000 00000000 		.space	4
- 380              		.section	.bss.LED_TaskHandle,"aw",%nobits
- 381              		.align	2
- 382              		.set	.LANCHOR8,. + 0
- 385              	LED_TaskHandle:
- 386 0000 00000000 		.space	4
- 387              		.section	.bss.Motor_TaskHandle,"aw",%nobits
- 388              		.align	2
- 389              		.set	.LANCHOR10,. + 0
- 392              	Motor_TaskHandle:
- 393 0000 00000000 		.space	4
- 394              		.section	.bss.btn1_counter,"aw",%nobits
- 395              		.align	1
- 396              		.set	.LANCHOR0,. + 0
- 399              	btn1_counter:
- 400 0000 0000     		.space	2
- 401              		.section	.bss.btn2_counter,"aw",%nobits
- 402              		.align	1
- 405              	btn2_counter:
- 406 0000 0000     		.space	2
- 407              		.section	.rodata.Btn1_Queue_attributes,"a"
- 408              		.align	2
- 409              		.set	.LANCHOR2,. + 0
- 412              	Btn1_Queue_attributes:
- 413 0000 0C000000 		.word	.LC1
- 414 0004 00000000 		.space	20
- 414      00000000 
- 414      00000000 
- 414      00000000 
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccvq2hhr.s 			page 13
+ 354 0018 4D6F746F 		.ascii	"Motor_Task\000"
+ 354      725F5461 
+ 354      736B00
+ 355              		.global	Motor_TaskHandle
+ 356              		.global	LED_Task_attributes
+ 357 0023 00       		.align	2
+ 358              	.LC3:
+ 359 0024 4C45445F 		.ascii	"LED_Task\000"
+ 359      5461736B 
+ 359      00
+ 360              		.global	LED_TaskHandle
+ 361              		.global	Btn_Task_attributes
+ 362 002d 000000   		.align	2
+ 363              	.LC4:
+ 364 0030 42746E5F 		.ascii	"Btn_Task\000"
+ 364      5461736B 
+ 364      00
+ 365              		.global	Btn_TaskHandle
+ 366              		.global	btn2_counter
+ 367              		.global	btn1_counter
+ 368              		.section	.bss.Btn1_QueueHandle,"aw",%nobits
+ 369              		.align	2
+ 370              		.set	.LANCHOR1,. + 0
+ 373              	Btn1_QueueHandle:
+ 374 0000 00000000 		.space	4
+ 375              		.section	.bss.Btn2_QueueHandle,"aw",%nobits
+ 376              		.align	2
+ 377              		.set	.LANCHOR4,. + 0
+ 380              	Btn2_QueueHandle:
+ 381 0000 00000000 		.space	4
+ 382              		.section	.bss.Btn_TaskHandle,"aw",%nobits
+ 383              		.align	2
+ 384              		.set	.LANCHOR6,. + 0
+ 387              	Btn_TaskHandle:
+ 388 0000 00000000 		.space	4
+ 389              		.section	.bss.LED_TaskHandle,"aw",%nobits
+ 390              		.align	2
+ 391              		.set	.LANCHOR8,. + 0
+ 394              	LED_TaskHandle:
+ 395 0000 00000000 		.space	4
+ 396              		.section	.bss.Motor_TaskHandle,"aw",%nobits
+ 397              		.align	2
+ 398              		.set	.LANCHOR10,. + 0
+ 401              	Motor_TaskHandle:
+ 402 0000 00000000 		.space	4
+ 403              		.section	.bss.btn1_counter,"aw",%nobits
+ 404              		.align	1
+ 405              		.set	.LANCHOR0,. + 0
+ 408              	btn1_counter:
+ 409 0000 0000     		.space	2
+ 410              		.section	.bss.btn2_counter,"aw",%nobits
+ 411              		.align	1
+ 414              	btn2_counter:
+ 415 0000 0000     		.space	2
+ 416              		.section	.rodata.Btn1_Queue_attributes,"a"
+ 417              		.align	2
+ 418              		.set	.LANCHOR2,. + 0
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccu7VAaG.s 			page 13
 
 
- 414      00000000 
- 415              		.section	.rodata.Btn2_Queue_attributes,"a"
- 416              		.align	2
- 417              		.set	.LANCHOR3,. + 0
- 420              	Btn2_Queue_attributes:
- 421 0000 00000000 		.word	.LC0
- 422 0004 00000000 		.space	20
- 422      00000000 
- 422      00000000 
- 422      00000000 
- 422      00000000 
- 423              		.section	.rodata.Btn_Task_attributes,"a"
- 424              		.align	2
- 425              		.set	.LANCHOR5,. + 0
- 428              	Btn_Task_attributes:
- 429 0000 30000000 		.word	.LC4
- 430 0004 00000000 		.space	16
- 430      00000000 
- 430      00000000 
- 430      00000000 
- 431 0014 00020000 		.word	512
- 432 0018 18000000 		.word	24
- 433 001c 00000000 		.space	8
- 433      00000000 
- 434              		.section	.rodata.LED_Task_attributes,"a"
- 435              		.align	2
- 436              		.set	.LANCHOR7,. + 0
- 439              	LED_Task_attributes:
- 440 0000 24000000 		.word	.LC3
- 441 0004 00000000 		.space	16
- 441      00000000 
- 441      00000000 
- 441      00000000 
- 442 0014 00020000 		.word	512
- 443 0018 18000000 		.word	24
- 444 001c 00000000 		.space	8
- 444      00000000 
- 445              		.section	.rodata.Motor_Task_attributes,"a"
- 446              		.align	2
- 447              		.set	.LANCHOR9,. + 0
- 450              	Motor_Task_attributes:
- 451 0000 18000000 		.word	.LC2
- 452 0004 00000000 		.space	16
- 452      00000000 
- 452      00000000 
- 452      00000000 
- 453 0014 00020000 		.word	512
- 454 0018 18000000 		.word	24
- 455 001c 00000000 		.space	8
- 455      00000000 
- 456              		.text
- 457              	.Letext0:
- 458              		.file 2 "d:\\chain\\gcc-arm-none-eabi-10.3-2021.10-win32\\gcc-arm-none-eabi-10.3-2021.10\\arm-none
- 459              		.file 3 "d:\\chain\\gcc-arm-none-eabi-10.3-2021.10-win32\\gcc-arm-none-eabi-10.3-2021.10\\arm-none
- 460              		.file 4 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f427xx.h"
- 461              		.file 5 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio.h"
- 462              		.file 6 "Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.h"
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccvq2hhr.s 			page 14
+ 421              	Btn1_Queue_attributes:
+ 422 0000 0C000000 		.word	.LC1
+ 423 0004 00000000 		.space	20
+ 423      00000000 
+ 423      00000000 
+ 423      00000000 
+ 423      00000000 
+ 424              		.section	.rodata.Btn2_Queue_attributes,"a"
+ 425              		.align	2
+ 426              		.set	.LANCHOR3,. + 0
+ 429              	Btn2_Queue_attributes:
+ 430 0000 00000000 		.word	.LC0
+ 431 0004 00000000 		.space	20
+ 431      00000000 
+ 431      00000000 
+ 431      00000000 
+ 431      00000000 
+ 432              		.section	.rodata.Btn_Task_attributes,"a"
+ 433              		.align	2
+ 434              		.set	.LANCHOR5,. + 0
+ 437              	Btn_Task_attributes:
+ 438 0000 30000000 		.word	.LC4
+ 439 0004 00000000 		.space	16
+ 439      00000000 
+ 439      00000000 
+ 439      00000000 
+ 440 0014 00020000 		.word	512
+ 441 0018 18000000 		.word	24
+ 442 001c 00000000 		.space	8
+ 442      00000000 
+ 443              		.section	.rodata.LED_Task_attributes,"a"
+ 444              		.align	2
+ 445              		.set	.LANCHOR7,. + 0
+ 448              	LED_Task_attributes:
+ 449 0000 24000000 		.word	.LC3
+ 450 0004 00000000 		.space	16
+ 450      00000000 
+ 450      00000000 
+ 450      00000000 
+ 451 0014 00020000 		.word	512
+ 452 0018 18000000 		.word	24
+ 453 001c 00000000 		.space	8
+ 453      00000000 
+ 454              		.section	.rodata.Motor_Task_attributes,"a"
+ 455              		.align	2
+ 456              		.set	.LANCHOR9,. + 0
+ 459              	Motor_Task_attributes:
+ 460 0000 18000000 		.word	.LC2
+ 461 0004 00000000 		.space	16
+ 461      00000000 
+ 461      00000000 
+ 461      00000000 
+ 462 0014 00020000 		.word	512
+ 463 0018 18000000 		.word	24
+ 464 001c 00000000 		.space	8
+ 464      00000000 
+ 465              		.text
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccu7VAaG.s 			page 14
 
 
- 463              		.file 7 "Core/Inc/Emm_V5.h"
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccvq2hhr.s 			page 15
+ 466              	.Letext0:
+ 467              		.file 2 "d:\\chain\\gcc-arm-none-eabi-10.3-2021.10-win32\\gcc-arm-none-eabi-10.3-2021.10\\arm-none
+ 468              		.file 3 "d:\\chain\\gcc-arm-none-eabi-10.3-2021.10-win32\\gcc-arm-none-eabi-10.3-2021.10\\arm-none
+ 469              		.file 4 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f427xx.h"
+ 470              		.file 5 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio.h"
+ 471              		.file 6 "Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.h"
+ 472              		.file 7 "Core/Inc/Emm_V5.h"
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccu7VAaG.s 			page 15
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 freertos.c
-C:\Users\ASUS\AppData\Local\Temp\ccvq2hhr.s:20     .text.StartLED_Task:00000000 $t
-C:\Users\ASUS\AppData\Local\Temp\ccvq2hhr.s:26     .text.StartLED_Task:00000000 StartLED_Task
-C:\Users\ASUS\AppData\Local\Temp\ccvq2hhr.s:54     .text.StartBtn_Task:00000000 $t
-C:\Users\ASUS\AppData\Local\Temp\ccvq2hhr.s:60     .text.StartBtn_Task:00000000 StartBtn_Task
-C:\Users\ASUS\AppData\Local\Temp\ccvq2hhr.s:137    .text.StartBtn_Task:00000058 $d
-C:\Users\ASUS\AppData\Local\Temp\ccvq2hhr.s:144    .text.StartMotor_Task:00000000 $t
-C:\Users\ASUS\AppData\Local\Temp\ccvq2hhr.s:150    .text.StartMotor_Task:00000000 StartMotor_Task
-C:\Users\ASUS\AppData\Local\Temp\ccvq2hhr.s:237    .text.StartMotor_Task:0000006c $d
-C:\Users\ASUS\AppData\Local\Temp\ccvq2hhr.s:243    .text.MX_FREERTOS_Init:00000000 $t
-C:\Users\ASUS\AppData\Local\Temp\ccvq2hhr.s:249    .text.MX_FREERTOS_Init:00000000 MX_FREERTOS_Init
-C:\Users\ASUS\AppData\Local\Temp\ccvq2hhr.s:315    .text.MX_FREERTOS_Init:0000004c $d
-C:\Users\ASUS\AppData\Local\Temp\ccvq2hhr.s:420    .rodata.Btn2_Queue_attributes:00000000 Btn2_Queue_attributes
-C:\Users\ASUS\AppData\Local\Temp\ccvq2hhr.s:333    .rodata.str1.4:00000000 $d
-C:\Users\ASUS\AppData\Local\Temp\ccvq2hhr.s:371    .bss.Btn2_QueueHandle:00000000 Btn2_QueueHandle
-C:\Users\ASUS\AppData\Local\Temp\ccvq2hhr.s:412    .rodata.Btn1_Queue_attributes:00000000 Btn1_Queue_attributes
-C:\Users\ASUS\AppData\Local\Temp\ccvq2hhr.s:364    .bss.Btn1_QueueHandle:00000000 Btn1_QueueHandle
-C:\Users\ASUS\AppData\Local\Temp\ccvq2hhr.s:450    .rodata.Motor_Task_attributes:00000000 Motor_Task_attributes
-C:\Users\ASUS\AppData\Local\Temp\ccvq2hhr.s:392    .bss.Motor_TaskHandle:00000000 Motor_TaskHandle
-C:\Users\ASUS\AppData\Local\Temp\ccvq2hhr.s:439    .rodata.LED_Task_attributes:00000000 LED_Task_attributes
-C:\Users\ASUS\AppData\Local\Temp\ccvq2hhr.s:385    .bss.LED_TaskHandle:00000000 LED_TaskHandle
-C:\Users\ASUS\AppData\Local\Temp\ccvq2hhr.s:428    .rodata.Btn_Task_attributes:00000000 Btn_Task_attributes
-C:\Users\ASUS\AppData\Local\Temp\ccvq2hhr.s:378    .bss.Btn_TaskHandle:00000000 Btn_TaskHandle
-C:\Users\ASUS\AppData\Local\Temp\ccvq2hhr.s:405    .bss.btn2_counter:00000000 btn2_counter
-C:\Users\ASUS\AppData\Local\Temp\ccvq2hhr.s:399    .bss.btn1_counter:00000000 btn1_counter
-C:\Users\ASUS\AppData\Local\Temp\ccvq2hhr.s:360    .bss.Btn1_QueueHandle:00000000 $d
-C:\Users\ASUS\AppData\Local\Temp\ccvq2hhr.s:367    .bss.Btn2_QueueHandle:00000000 $d
-C:\Users\ASUS\AppData\Local\Temp\ccvq2hhr.s:374    .bss.Btn_TaskHandle:00000000 $d
-C:\Users\ASUS\AppData\Local\Temp\ccvq2hhr.s:381    .bss.LED_TaskHandle:00000000 $d
-C:\Users\ASUS\AppData\Local\Temp\ccvq2hhr.s:388    .bss.Motor_TaskHandle:00000000 $d
-C:\Users\ASUS\AppData\Local\Temp\ccvq2hhr.s:395    .bss.btn1_counter:00000000 $d
-C:\Users\ASUS\AppData\Local\Temp\ccvq2hhr.s:402    .bss.btn2_counter:00000000 $d
-C:\Users\ASUS\AppData\Local\Temp\ccvq2hhr.s:408    .rodata.Btn1_Queue_attributes:00000000 $d
-C:\Users\ASUS\AppData\Local\Temp\ccvq2hhr.s:416    .rodata.Btn2_Queue_attributes:00000000 $d
-C:\Users\ASUS\AppData\Local\Temp\ccvq2hhr.s:424    .rodata.Btn_Task_attributes:00000000 $d
-C:\Users\ASUS\AppData\Local\Temp\ccvq2hhr.s:435    .rodata.LED_Task_attributes:00000000 $d
-C:\Users\ASUS\AppData\Local\Temp\ccvq2hhr.s:446    .rodata.Motor_Task_attributes:00000000 $d
+C:\Users\ASUS\AppData\Local\Temp\ccu7VAaG.s:20     .text.StartBtn_Task:00000000 $t
+C:\Users\ASUS\AppData\Local\Temp\ccu7VAaG.s:26     .text.StartBtn_Task:00000000 StartBtn_Task
+C:\Users\ASUS\AppData\Local\Temp\ccu7VAaG.s:104    .text.StartBtn_Task:00000058 $d
+C:\Users\ASUS\AppData\Local\Temp\ccu7VAaG.s:111    .text.StartLED_Task:00000000 $t
+C:\Users\ASUS\AppData\Local\Temp\ccu7VAaG.s:117    .text.StartLED_Task:00000000 StartLED_Task
+C:\Users\ASUS\AppData\Local\Temp\ccu7VAaG.s:148    .text.StartLED_Task:00000014 $d
+C:\Users\ASUS\AppData\Local\Temp\ccu7VAaG.s:153    .text.StartMotor_Task:00000000 $t
+C:\Users\ASUS\AppData\Local\Temp\ccu7VAaG.s:159    .text.StartMotor_Task:00000000 StartMotor_Task
+C:\Users\ASUS\AppData\Local\Temp\ccu7VAaG.s:246    .text.StartMotor_Task:0000006c $d
+C:\Users\ASUS\AppData\Local\Temp\ccu7VAaG.s:252    .text.MX_FREERTOS_Init:00000000 $t
+C:\Users\ASUS\AppData\Local\Temp\ccu7VAaG.s:258    .text.MX_FREERTOS_Init:00000000 MX_FREERTOS_Init
+C:\Users\ASUS\AppData\Local\Temp\ccu7VAaG.s:324    .text.MX_FREERTOS_Init:0000004c $d
+C:\Users\ASUS\AppData\Local\Temp\ccu7VAaG.s:429    .rodata.Btn2_Queue_attributes:00000000 Btn2_Queue_attributes
+C:\Users\ASUS\AppData\Local\Temp\ccu7VAaG.s:342    .rodata.str1.4:00000000 $d
+C:\Users\ASUS\AppData\Local\Temp\ccu7VAaG.s:380    .bss.Btn2_QueueHandle:00000000 Btn2_QueueHandle
+C:\Users\ASUS\AppData\Local\Temp\ccu7VAaG.s:421    .rodata.Btn1_Queue_attributes:00000000 Btn1_Queue_attributes
+C:\Users\ASUS\AppData\Local\Temp\ccu7VAaG.s:373    .bss.Btn1_QueueHandle:00000000 Btn1_QueueHandle
+C:\Users\ASUS\AppData\Local\Temp\ccu7VAaG.s:459    .rodata.Motor_Task_attributes:00000000 Motor_Task_attributes
+C:\Users\ASUS\AppData\Local\Temp\ccu7VAaG.s:401    .bss.Motor_TaskHandle:00000000 Motor_TaskHandle
+C:\Users\ASUS\AppData\Local\Temp\ccu7VAaG.s:448    .rodata.LED_Task_attributes:00000000 LED_Task_attributes
+C:\Users\ASUS\AppData\Local\Temp\ccu7VAaG.s:394    .bss.LED_TaskHandle:00000000 LED_TaskHandle
+C:\Users\ASUS\AppData\Local\Temp\ccu7VAaG.s:437    .rodata.Btn_Task_attributes:00000000 Btn_Task_attributes
+C:\Users\ASUS\AppData\Local\Temp\ccu7VAaG.s:387    .bss.Btn_TaskHandle:00000000 Btn_TaskHandle
+C:\Users\ASUS\AppData\Local\Temp\ccu7VAaG.s:414    .bss.btn2_counter:00000000 btn2_counter
+C:\Users\ASUS\AppData\Local\Temp\ccu7VAaG.s:408    .bss.btn1_counter:00000000 btn1_counter
+C:\Users\ASUS\AppData\Local\Temp\ccu7VAaG.s:369    .bss.Btn1_QueueHandle:00000000 $d
+C:\Users\ASUS\AppData\Local\Temp\ccu7VAaG.s:376    .bss.Btn2_QueueHandle:00000000 $d
+C:\Users\ASUS\AppData\Local\Temp\ccu7VAaG.s:383    .bss.Btn_TaskHandle:00000000 $d
+C:\Users\ASUS\AppData\Local\Temp\ccu7VAaG.s:390    .bss.LED_TaskHandle:00000000 $d
+C:\Users\ASUS\AppData\Local\Temp\ccu7VAaG.s:397    .bss.Motor_TaskHandle:00000000 $d
+C:\Users\ASUS\AppData\Local\Temp\ccu7VAaG.s:404    .bss.btn1_counter:00000000 $d
+C:\Users\ASUS\AppData\Local\Temp\ccu7VAaG.s:411    .bss.btn2_counter:00000000 $d
+C:\Users\ASUS\AppData\Local\Temp\ccu7VAaG.s:417    .rodata.Btn1_Queue_attributes:00000000 $d
+C:\Users\ASUS\AppData\Local\Temp\ccu7VAaG.s:425    .rodata.Btn2_Queue_attributes:00000000 $d
+C:\Users\ASUS\AppData\Local\Temp\ccu7VAaG.s:433    .rodata.Btn_Task_attributes:00000000 $d
+C:\Users\ASUS\AppData\Local\Temp\ccu7VAaG.s:444    .rodata.LED_Task_attributes:00000000 $d
+C:\Users\ASUS\AppData\Local\Temp\ccu7VAaG.s:455    .rodata.Motor_Task_attributes:00000000 $d
 
 UNDEFINED SYMBOLS
 osDelay
 HAL_GPIO_ReadPin
 osMessageQueuePut
+HAL_GPIO_TogglePin
 Emm_V5_En_Control
 Emm_V5_Vel_Control
 osMessageQueueGet
